@@ -2,7 +2,7 @@
     "name": "babonless",
     "version": "0.0.1",
     "description": "Just another LESS library.",
-    "main": "babonless-0.0.1.less",
+    "main": "dist/babonless-0.0.1.less",
     "ignore": [
         "node_modules",
         "**/.*",
