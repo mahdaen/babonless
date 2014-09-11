@@ -1,0 +1,114 @@
+// Box Shadow.
+.box-shadow(@arg) {
+    .prefixer(box-shadow, @arg, true);
+}
+// Merge Box Shadow.
+.box-shadow-e(@arg) {
+    .prefixer(box-shadow, @arg, true, comma);
+}
+// Merge Text Shadow.
+.text-shadow-e(@arg) {
+    text-shadow+: @arg;
+}
+
+// Drop shadow.
+.drop-shadow(@arg) {
+    .box-shadow(@arg);
+}
+.drop-shadow-e(@arg) {
+    .box-shadow-e(@arg);
+}
+
+// Inner Shadow.
+.inner-shadow(@arg) {
+    .box-shadow(inset @arg);
+}
+.inner-shadow-e(@arg) {
+    .box-shadow-e(inset @arg);
+}
+
+// Long Shadow.
+// .long-drop-shadow(up-right 30 #ccc blur);
+.yz-gen-long-shadow(@dir, @type, @size, @arg) {
+    & when (@type = drop-shadow) {
+        & when (@dir = up) {
+            .drop-shadow-e(0 unit(-@size, px) @arg);
+        }
+        & when (@dir = down) {
+            .drop-shadow-e(0 unit(@size, px) @arg);
+        }
+        & when (@dir = right) {
+            .drop-shadow-e(unit(@size, px) 0 @arg);
+        }
+        & when (@dir = left) {
+            .drop-shadow-e(unit(-@size, px) 0 @arg);
+        }
+        & when (@dir = up-left) {
+            .drop-shadow-e(unit(-@size, px) unit(-@size, px) @arg);
+        }
+        & when (@dir = up-right) {
+            .drop-shadow-e(unit(@size, px) unit(-@size, px) @arg);
+        }
+        & when (@dir = down-left) {
+            .drop-shadow-e(unit(-@size, px) unit(@size, px) @arg);
+        }
+        & when (@dir = down-right) {
+            .drop-shadow-e(unit(@size, px) unit(@size, px) @arg);
+        }
+    }
+    & when (@type = text-shadow) {
+        & when (@dir = up) {
+            .text-shadow-e(0 unit(-@size, px) @arg);
+        }
+        & when (@dir = down) {
+            .text-shadow-e(0 unit(@size, px) @arg);
+        }
+        & when (@dir = right) {
+            .text-shadow-e(unit(@size, px) 0 @arg);
+        }
+        & when (@dir = left) {
+            .text-shadow-e(unit(-@size, px) 0 @arg);
+        }
+        & when (@dir = up-left) {
+            .text-shadow-e(unit(-@size, px) unit(-@size, px) @arg);
+        }
+        & when (@dir = up-right) {
+            .text-shadow-e(unit(@size, px) unit(-@size, px) @arg);
+        }
+        & when (@dir = down-left) {
+            .text-shadow-e(unit(-@size, px) unit(@size, px) @arg);
+        }
+        & when (@dir = down-right) {
+            .text-shadow-e(unit(@size, px) unit(@size, px) @arg);
+        }
+    }
+}
+.yz-long-shadow(@option: none; @depth; @type: drop-shadow; @current: 1; @allwd: 0) when (length(@option) >= 4) {
+    @direc: extract(@option, 1);
+    @width: extract(@option, 2);
+    @color: extract(@option, 3);
+    @style: extract(@option, 4);
+
+    & when (@current <= @width) and (@style = blur) and (@allwd = 0) {
+        @allwd: @width;
+
+        .hrgba(@color, (@depth / @current));
+        .yz-gen-long-shadow(@direc, @type, @current, @new-color);
+        .yz-long-shadow(@direc @width @color @style, @depth, @type, (@current + 1), @allwd);
+    }
+    & when (@current <= @width) and (@style = blur) and (@allwd > 0) {
+        .hrgba(@color, (@depth / @current));
+        .yz-gen-long-shadow(@direc, @type, @current, @new-color);
+        .yz-long-shadow(@direc @width @color @style, @depth, @type, (@current + 1), @allwd);
+    }
+    & when (@current <= @width) and (@style = flat) {
+        .yz-gen-long-shadow(@direc, @type, @current, @color);
+        .yz-long-shadow(@direc @width @color @style, @depth, @type, (@current + 1));
+    }
+}
+.long-drop-shadow(@option, @shadow-depth: @def-shadow-depth) when (length(@option) >= 4) {
+    .yz-long-shadow(@option, @shadow-depth, drop-shadow);
+}
+.long-text-shadow(@option, @shadow-depth: @def-shadow-depth) when (length(@option) >= 4) {
+    .yz-long-shadow(@option, @shadow-depth, text-shadow);
+}

@@ -1,0 +1,52 @@
+// Grid container generator.
+.grid-box(@option: @def-grid-option) when (length(@option) = 3) {
+    @width: extract(@option, 1);
+    @colum: extract(@option, 2);
+    @guter: extract(@option, 3);
+
+    @gutter-size: ((@guter / @width) * 100);
+    @column-size: ((100 / @colum) - @gutter-size);
+    @common-size: @width;
+
+    width: unit(100 + @gutter-size, %);
+    margin-left: unit(-@gutter-size, %);
+    .clearfix;
+}
+
+// Grid column generator.
+.grid-col(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+    @width: extract(@option, 1);
+    @colum: extract(@option, 2);
+    @guter: extract(@option, 3);
+
+    @gutter-size: ((@guter / @width) * 100);
+    @column-size: ((100 / @colum) - @gutter-size);
+    @common-size: @width;
+
+    width: unit((@column-size * @column) + (@gutter-size * (@column - 1)), %);
+    margin-left: unit(@gutter-size, %);
+    float: left;
+}
+// Grid prefix generator.
+.grid-pre(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+    @width: extract(@option, 1);
+    @colum: extract(@option, 2);
+    @guter: extract(@option, 3);
+
+    @gutter-size: ((@guter / @width) * 100);
+    @column-size: ((100 / @colum) - @gutter-size);
+    @common-size: @width;
+
+    padding-left: unit((@column-size * @column) + (@gutter-size * (@column - 1)), %);
+}
+.grid-suf(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+    @width: extract(@option, 1);
+    @colum: extract(@option, 2);
+    @guter: extract(@option, 3);
+
+    @gutter-size: ((@guter / @width) * 100);
+    @column-size: ((100 / @colum) - @gutter-size);
+    @common-size: @width;
+
+    padding-right: unit((@column-size * @column) + (@gutter-size * (@column - 1)), %);
+}

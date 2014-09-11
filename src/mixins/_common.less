@@ -1,0 +1,86 @@
+// Block Debugger.
+.debug-block() {
+    * {
+        box-shadow: 0 0 1px red;
+    }
+}
+
+// Hex to RGBA Converter.
+.hrgba(@color, @opacity) when (iscolor(@color)) and (isnumber(@opacity)) {
+    @new-color: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+
+// Commont mixins to cover missing CSS3 prefixer.
+.prefixer(@name; @values; @origin: false; @mixer: false) when (iskeyword(@name)) and (length(@values) >= 1) {
+    & when (@mixer = false) {
+        -webkit-@{name}: @values;
+           -moz-@{name}: @values;
+            -ms-@{name}: @values;
+
+        & when (@origin = true) {
+                @{name}: @values;
+        }
+    }
+    & when (@mixer = comma) {
+        -webkit-@{name}+: @values;
+           -moz-@{name}+: @values;
+            -ms-@{name}+: @values;
+
+        & when (@origin = true) {
+                @{name}+: @values;
+        }
+    }
+    & when (@mixer = space) {
+        -webkit-@{name}+_: @values;
+           -moz-@{name}+_: @values;
+            -ms-@{name}+_: @values;
+
+        & when (@origin = true) {
+                @{name}+_: @values;
+        }
+    }
+}
+
+// Opacity.
+.opacity(@arg) {
+    .prefixer(opacity, @arg, true);
+    @opc: (@arg * 100);
+    filter: ~"alpha(opacity=@{opc})"
+}
+
+// Text Overflow.
+.text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hyphens(@value: auto) {
+    .prefixer(hyphens, @value, true);
+    word-wrap: break-word;
+}
+
+// Clearfix.
+.clearfix(@padding; @margin) {
+    *zoom: 1;
+
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+
+    & when (length(@padding) >= 1) {
+        padding: @padding;
+    }
+    & when (length(@margin) >= 1) {
+        margin: @margin;
+    }
+}
+
+// Container.
+.container-box(@width; @padding: none) when (isnumber(@width)) {
+    width: 100%;
+    max-width: @width;
+    margin: 0 auto;
+
+    & when (length(@padding) = 1) and (isnumber(@padding)), (length(@padding) >= 2) {
+        padding: @padding;
+    }
+}

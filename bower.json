@@ -1,0 +1,11 @@
+{
+    "name": "babonless",
+    "version": "0.0.1",
+    "description": "Just another LESS library.",
+
+    "ignore": [
+        "node_modules"
+    ],
+
+    "dependencies": {}
+}

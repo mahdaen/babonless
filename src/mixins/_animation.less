@@ -1,0 +1,59 @@
+// Animation Mixins.
+.animation(@arg) {
+    .prefixer(animation, @arg, true);
+}
+.animation-name(@arg) {
+    .prefixer(animation-name, @arg, true);
+}
+.animation-duration(@arg) {
+    .prefixer(animation-duration, @arg, true);
+}
+.animation-timing-function(@arg) {
+    .prefixer(animation-timing-function, @arg, true);
+}
+.animation-delay(@arg) {
+    .prefixer(animation-delay, @arg, true);
+}
+.animation-iteration-count(@arg) {
+    .prefixer(animation-iteration-count, @arg, true);
+}
+.animation-direction(@arg) {
+    .prefixer(animation-direction, @arg, true);
+}
+.animation-fill-mode(@arg) {
+    .prefixer(animation-fill-mode, @arg, true);
+}
+.animation-play-state(@arg) {
+    .prefixer(animation-play-state, @arg, true);
+}
+
+// Transition.
+.transition(@value) {
+    .prefixer(transition, @value, true);
+}
+.transition-e(@value) {
+    .prefixer(transition, @value, true, comma);
+}
+.transition-property(@value;) {
+    .prefixer(transition-property, @value, true);
+}
+.transition-duration(@value;) {
+    .prefixer(transition-duration, @value, true);
+}
+.transition-timing-function(@value;) {
+    .prefixer(transition-timing-function, @value, true);
+}
+.transition-delay(@value;) {
+    .prefixer(transition-delay, @value, true);
+}
+
+// Prebuilt Transitions.
+.public-effect() {
+    .transition(all @def-etime ease-in-out);
+}
+.public-effect-fast() {
+    .transition(all @def-etime-f ease-in-out);
+}
+.public-effect-slow() {
+    .transition(all @def-etime-s ease-in-out);
+}

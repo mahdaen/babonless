@@ -1,0 +1,121 @@
+// Border shorthand.
+.border(@arg: @def-brd @def-brd @def-brd @def-brd solid @def-bcl) {
+    & when (length(@arg) = 4) {
+        @top: extract(@arg, 1);
+        @btm: extract(@arg, 1);
+        @rgt: extract(@arg, 2);
+        @lft: extract(@arg, 2);
+
+        @typ: extract(@arg, 3);
+        @clr: extract(@arg, 4);
+
+        & when (isnumber(@top)) {
+            border-top: @top @typ @clr;
+        }
+        & when (isnumber(@rgt)) {
+            border-right: @rgt @typ @clr;
+        }
+        & when (isnumber(@btm)) {
+            border-bottom: @btm @typ @clr;
+        }
+        & when (isnumber(@lft)) {
+            border-left: @lft @typ @clr;
+        }
+    }
+    & when (length(@arg) = 5) {
+        @top: extract(@arg, 1);
+        @btm: extract(@arg, 2);
+        @rgt: extract(@arg, 3);
+
+        @typ: extract(@arg, 4);
+        @clr: extract(@arg, 5);
+
+        & when (isnumber(@top)) {
+            border-top: @top @typ @clr;
+        }
+        & when (isnumber(@rgt)) {
+            border-right: @rgt @typ @clr;
+        }
+        & when (isnumber(@btm)) {
+            border-bottom: @btm @typ @clr;
+        }
+    }
+    & when (length(@arg) = 6) {
+        @top: extract(@arg, 1);
+        @btm: extract(@arg, 2);
+        @rgt: extract(@arg, 3);
+        @lft: extract(@arg, 4);
+
+        @typ: extract(@arg, 5);
+        @clr: extract(@arg, 6);
+
+        & when (isnumber(@top)) {
+            border-top: @top @typ @clr;
+        }
+        & when (isnumber(@rgt)) {
+            border-right: @rgt @typ @clr;
+        }
+        & when (isnumber(@btm)) {
+            border-bottom: @btm @typ @clr;
+        }
+        & when (isnumber(@lft)) {
+            border-left: @lft @typ @clr;
+        }
+    }
+}
+
+.border-radius(@value;) {
+    .prefixer(border-radius, @value, true);
+
+    -webkit-background-clip: padding;
+       -moz-bakcground-clip: padding-box;
+            background-clip: padding-box;
+}
+.border-top-left-radius(@value;) {
+    .prefixer(border-top-left-radius, @value, true);
+
+    -webkit-background-clip: padding;
+    -moz-bakcground-clip: padding-box;
+    background-clip: padding-box;
+}
+.border-top-right-radius(@value;) {
+    .prefixer(border-top-right-radius, @value, true);
+
+    -webkit-background-clip: padding;
+    -moz-bakcground-clip: padding-box;
+    background-clip: padding-box;
+}
+.border-bottom-left-radius(@value;) {
+    .prefixer(border-bottom-left-radius, @value, true);
+
+    -webkit-background-clip: padding;
+    -moz-bakcground-clip: padding-box;
+    background-clip: padding-box;
+}
+.border-bottom-right-radius(@value;) {
+    .prefixer(border-bottom-right-radius, @value, true);
+
+    -webkit-background-clip: padding;
+    -moz-bakcground-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.border-image(@value;) {
+    .prefixer(border-image, @value, true);
+}
+.border-image-outset(@value;) {
+    .prefixer(border-image-outset, @value, true);
+}
+.border-image-repeat(@value;) {
+    .prefixer(border-image-repeat, @value, true);
+}
+.border-image-slice(@value;) {
+    .prefixer(border-image-slice, @value, true);
+}
+.border-image-source(@value;) {
+    .prefixer(border-image-source, @value, true);
+}
+.border-image-width(@value;) {
+    .prefixer(border-image-width, @value, true);
+}
+

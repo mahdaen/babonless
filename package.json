@@ -1,0 +1,16 @@
+{
+    "name": "babonless",
+    "version": "0.0.1",
+    "description": "Just another LESS library.",
+    "readme": "readme.md",
+
+    "repository": [
+        "https://github.com/mahdaen/babonless",
+        "https://gitlab.com/babonkit/babonless"
+    ],
+
+    "dependencies": {
+        "grunt": "*",
+        "grunt-contrib-concat": "*"
+    }
+}

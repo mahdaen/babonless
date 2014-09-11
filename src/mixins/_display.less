@@ -1,0 +1,84 @@
+// Display mixins.
+.display-set(@arg: @def-display-val, @size: none) when (iskeyword(@arg)) {
+
+    display: @arg;
+
+    & when (length(@size) = 2) {
+        @wd: extract(@size, 1);
+        @hg: extract(@size, 2);
+
+        & when (isnumber(@wd)), (@wd = auto) {
+            width: @wd;
+        }
+        & when (isnumber(@hg)), (@hg = auto) {
+            height: @hg;
+        }
+    }
+    & when (length(@size) = 1) and (isnumber(@size)), (@size = auto) {
+        width: @size;
+        height: @size;
+    }
+}
+.block(@size: none) {
+    .display-set(block, @size);
+}
+.inline(@size: none) {
+    .display-set(inline, @size);
+}
+.inline-block(@size: none) {
+    .display-set(inline-block, @size);
+    *display: inline;
+    zoom: 1;
+}
+.table(@size: none) {
+    .display-set(table, @size);
+}
+.table-row(@size: none) {
+    .display-set(table-row, @size);
+}
+.table-cell(@size: none) {
+    .display-set(table-cell, @size);
+}
+.flex-box(@size: none) {
+    .display-set(flex, @size);
+}
+
+// Visibility.
+.invisible() {
+    visibility: hidden;
+    opacity: 0;
+}
+.visible() {
+    visibility: visible;
+    opacity: 1;
+}
+.hide() {
+    display: none !important;
+}
+.show() {
+    display: block !important;
+}
+.hidden() {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+// Sizer.
+.size(@arg) when (length(@arg) >= 1) {
+    @wid: extract(@arg, 1);
+
+    & when (isnumber(@wid)), (@wid = auto) {
+        width: @wid;
+    }
+    & when (length(@arg) = 1) and (isnumber(@wid)), (@wid = auto) {
+        height: @wid;
+    }
+    & when (length(@arg) = 2) {
+        @hgt: extract(@arg, 2);
+
+        & when (isnumber(@hgt)), (@hgt = auto) {
+            height: @hgt;
+        }
+    }
+}

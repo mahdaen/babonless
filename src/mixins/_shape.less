@@ -1,0 +1,66 @@
+// Triangle Generator.
+.triangle(@arg) when (length(@arg) >= 3) {
+    @sizes: extract(@arg, 1);
+    @color: extract(@arg, 2);
+    @direc: extract(@arg, 3);
+    @rotat: extract(@arg, 4);
+
+    .inline-block(0 0);
+    border: unit(@sizes, px) solid @color;
+
+    & when (@direc = up) {
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+    }
+    & when (@direc = down) {
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+    }
+    & when (@direc = left) {
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        border-top-color: transparent;
+    }
+
+    & when (@direc = right) {
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-top-color: transparent;
+    }
+
+    & when (length(@arg) = 4) {
+        .rotate-e(@rotat);
+    }
+}
+
+// Circle Generator.
+.circle(@arg) when (length(@arg) >= 1) {
+    @wid: extract(@arg, 1);
+
+    .size(@wid);
+    .border-radius(50%);
+
+    & when (length(@arg) = 2) {
+        background-color: extract(@arg, 2);
+    }
+}
+
+// Oval Generator.
+.oval(@arg) when (length(@arg) >= 3) {
+    @wid: extract(@arg, 1);
+    @hgt: extract(@arg, 2);
+    @clr: extract(@arg, 3);
+
+    & when (isnumber(@wid)) and (isnumber(@hgt)) and (iscolor(@clr)) {
+        .size(@wid @hgt);
+        .border-radius(50% / 50%);
+
+        background-color: @clr;
+
+        & when (length(@arg) = 4) {
+            .rotate-e(extract(@arg, 4));
+        }
+    }
+}

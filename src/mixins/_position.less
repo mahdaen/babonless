@@ -1,0 +1,50 @@
+// Positioning mixins.
+.position(@pos: relative, @arg: @def-pos-val) when (iskeyword(@pos)) {
+    @top: extract(@arg, 1);
+    @rgt: extract(@arg, 2);
+    @btm: extract(@arg, 3);
+    @lft: extract(@arg, 4);
+
+    position: @pos;
+
+    & when (isnumber(@top)), (@top = auto) {
+        top: @top;
+    }
+    & when (isnumber(@rgt)), (@rgt = auto) {
+        right: @rgt;
+    }
+    & when (isnumber(@btm)), (@btm = auto) {
+        bottom: @btm;
+    }
+    & when (isnumber(@lft)), (@lft = auto) {
+        left: @lft;
+    }
+}
+
+// Absolute Position.
+.absolute(@arg: @def-pos-val) {
+    .position(absolute, @arg);
+}
+.absolute-center() {
+    .absolute(50%);
+    .translateY-e(-50%);
+}
+.absolute-middle() {
+    .absolute(none none none 50%);
+    .translateX-e(-50%);
+}
+.absolute-center-all() {
+    .absolute(50% none none 50%);
+    .translate-e(-50% -50%);
+}
+
+// Relative Position.
+.relative(@arg: @def-pos-val) {
+    .position(relative, @arg);
+}
+
+// Fixed position.
+.fixed(@arg: @def-pos-val) {
+    .position(fixed, @arg);
+}
+

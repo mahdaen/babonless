@@ -1,0 +1,47 @@
+// VARIABLE COLLECTIONS.
+// ----------------------------------------------
+
+// Default Input Placeholder Color.
+@def-pld-clr            : #555;
+
+// Default border shortand size and color.
+@def-brd                : 1px;
+@def-bcl                : #cccccc;
+
+// Default Display Property.
+@def-display-val        : block;
+
+// Default position value.
+@def-pos-val            : none none none none;
+
+// Long shadow config.
+@def-shadow-depth       : 1;        // from 0.5 to 5.
+
+// Default effect timing.
+@def-etime              : .3s;      // Normal.
+@def-etime-f            : .2s;      // Fast.
+@def-etime-s            : .6s;      // Slow.
+
+// Default Grid Option.
+@def-grid-option        : 960 12 10;
+
+// Default font-styles.
+@def-font-style         : Hairline HairlineItalic Thin ThinItalic Light LightItalic Regular Italic Medium MediumItalic Semibold SemiboldItalic Bold BoldItalic 'Black' BlackItalic Heavy HeavyItalic;
+
+// Media Queries.
+@retina                 : ~"only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+
+@mobile                 : ~"only screen and (min-device-width : 320px) and (max-device-width : 767px)";
+@mobile-portrait        : ~"only screen and (max-width: 509px) and (min-device-width: 1024px), (max-device-width: 480px) and (orientation: portrait)";
+@mobile-landscape       : ~"only screen and (max-width: 509px) and (min-device-width: 1024px), (max-device-width: 480px) and (orientation: landscape)";
+
+@tablet                 : ~"@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
+@tablet-portrait        : ~"only screen and (max-device-width: 1024px) and (min-device-width: 481px) and (orientation: portrait)";
+@tablet-landscape       : ~"only screen and (max-width: 989px) and (min-device-width: 1024px), screen and (max-device-width: 480px), (max-device-width: 480px) and (orientation: landscape)";
+
+@desktop                : ~"only screen and (min-width: 1200px)";
+@desktop-mdm            : ~"only screen and (min-width: 1400px)";
+@destkop-fhd            : ~"only screen and (min-width: 1900px)";
+@destkop-whd            : ~"only screen and (min-width: 2500px)";
+@destkop-qhd            : ~"only screen and (min-width: 3400px)";
+@desktop-uhd            : ~"only screen and (min-width: 3800px)";

@@ -1,0 +1,46 @@
+// Font Face Generator.
+.font-family(@arg) when (length(@arg) >= 2) {
+    @name: extract(@arg, 1);
+    @path: extract(@arg, 2);
+
+    @font-face {
+        font-family: "@{name}";
+        src: local("@{name}");
+
+        src: url("@{path}.eot");
+        src: url("@{path}.eot#iefix") format("embedded-opentype"),
+             url("@{path}.svg") format("svg"),
+             url("@{path}.ttf") format("truetype"),
+             url("@{path}.woff") format("woff");
+
+        font-weight: 400;
+        font-style: normal;
+        font-streetch: normal;
+
+        & when (length(@arg) = 3) {
+            font-weight: extract(@arg, 3);
+        }
+        & when (length(@arg) = 4) {
+            font-style: extract(@arg, 4);
+        }
+    }
+}
+// Batch Font Face Generator.
+.font-faces(@arg; @styles: @def-font-style; @i: 1) when (@i <= length(@styles)) {
+    @name: extract(@arg, 1);
+    @path: extract(@arg, 2);
+    @curn: extract(@styles, @i);
+    @new: ~"@{path}/@{name}-@{curn}";
+
+    .font-family(~'@{name} @{curn}' @new);
+    .font-faces(@arg, @styles, (@i + 1));
+}
+
+// Font Smoothing.
+.font-smoothing() {
+    speak: none;
+    font-variant: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,173 @@
+// Transform.
+.transform(@arg) {
+    .prefixer(transform; @arg; true);
+}
+.transform-e(@arg) {
+    .prefixer(transform, @arg, true, space);
+}
+.transform-origin(@arg) {
+    .prefixer(transform-origin, @arg, true);
+}
+.transform-style(@value;) {
+    .prefixer(transform-style, @arg, true);
+}
+
+// Overwrite Translate.
+// Usage: .translate(x y z);
+.translate(@arg) {
+    & when (length(@arg) = 2) {
+        .transform(translate(extract(@arg, 1), extract(@arg, 2)));
+    }
+    & when (length(@arg) = 3) {
+        .transform(translate3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3)));
+    }
+}
+.translateX(@arg) {
+    .transform(translateX(@arg));
+}
+.translateY(@arg) {
+    .transform(translateY(@arg));
+}
+.translateZ(@arg) {
+    .transform(translateZ(@arg));
+}
+
+// Merge translate.
+// Usage: .translate-e(x y z)
+.translate-e(@arg) {
+    & when (length(@arg) = 2) {
+        .transform-e(translate(extract(@arg, 1), extract(@arg, 2)));
+    }
+    & when (length(@arg) = 3) {
+        .transform-e(translate3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3)));
+    }
+}
+.translateX-e(@arg) {
+    .transform-e(translateX(@arg));
+}
+.translateY-e(@arg) {
+    .transform-e(translateY(@arg));
+}
+.translateZ-e(@arg) {
+    .transform-e(translateZ(@arg));
+}
+
+// Overwrite Rotation.
+// Usage: .rotate(deg) or .rotate(x y z deg).
+.rotate(@arg) {
+    & when (length(@arg) = 1) {
+        .transform(rotate(@arg));
+    }
+    & when (length(@arg) = 4) {
+        .transform(rotate3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3), extract(@arg, 4)));
+    }
+}
+.rotateX(@arg) {
+    .transform(rotateX(@arg));
+}
+.rotateY(@arg) {
+    .transform(rotateY(@arg));
+}
+.rotateZ(@arg) {
+    .transform(rotateZ(@arg));
+}
+
+// Merge rotate.
+// Usage: .rotate-e(deg) or .rotate-e(x y z deg).
+.rotate-e(@arg) {
+    & when (length(@arg) = 1) {
+        .transform-e(rotate(@arg));
+    }
+    & when (length(@arg) = 4) {
+        .transform-e(rotate3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3), extract(@arg, 4)));
+    }
+}
+.rotateX-e(@arg) {
+    .transform-e(rotateX(@arg));
+}
+.rotateY-e(@arg) {
+    .transform-e(rotateY(@arg));
+}
+.rotateZ-e(@arg) {
+    .transform-e(rotateZ(@arg));
+}
+
+// Scale
+// Usage: .scale(x y z);
+.scale(@arg) {
+    & when (length(@arg) = 1) {
+        .transform(scale(@arg));
+    }
+    & when (length(@arg) = 2) {
+        .transform(scale(extract(@arg, 1), extract(@arg, 2)));
+    }
+    & when (length(@arg) = 3) {
+        .transform(scale3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3)));
+    }
+}
+.scaleX(@arg) {
+    .transform(scaleX(@arg));
+}
+.scaleY(@arg) {
+    .transform(scaleY(@arg));
+}
+.scaleZ(@arg) {
+    .transform(scaleZ(@arg));
+}
+
+/* Merge Scale */
+.scale-e(@arg) {
+    & when (length(@arg) = 1) {
+        .transform-e(scale(@arg));
+    }
+    & when (length(@arg) = 2) {
+        .transform-e(scale(extract(@arg, 1), extract(@arg, 2)));
+    }
+    & when (length(@arg) = 3) {
+        .transform-e(scale3d(extract(@arg, 1), extract(@arg, 2), extract(@arg, 3)));
+    }
+}
+.scaleX-e(@arg) {
+    .transform-e(scaleX(@arg));
+}
+.scaleY-e(@arg) {
+    .transform-e(scaleY(@arg));
+}
+.scaleZ-e(@arg) {
+    .transform-e(scaleZ(@arg));
+}
+
+// Skew.
+// Usage: .skew(x y);
+.skew(@arg) {
+    & when (length(@arg) = 2) {
+        .transform(skew(extract(@arg, 1), extract(@arg, 2)));
+    }
+}
+.skewX(@arg) {
+    .transform(skewX(@arg));
+}
+.skewY(@arg) {
+    .transform(skewY(@arg));
+}
+
+// Merge Skew.
+.skew-e(@arg) {
+    & when (length(@arg) = 2) {
+        .transform-e(skew(extract(@arg, 1), extract(@arg, 2)));
+    }
+}
+.skewX-e(@arg) {
+    .transform-e(skewX(@arg));
+}
+.skewY-e(@arg) {
+    .transform-e(skewY(@arg));
+}
+
+// Perspective
+.perspective(@arg) {
+    .prefixer(perspective, @arg, true);
+}
+.perspective-origin(@arg) {
+    .prefixer(perspective-origin, @arg, true);
+}

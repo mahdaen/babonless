@@ -1,0 +1,47 @@
+// Browser Customization Mixins.
+
+// Input Placeholder.
+.input-placeholder(@arg: @def-pld-clr) {
+    &::-webkit-input-placeholder {
+        color: @arg;
+    }
+    &::-moz-placeholder {
+        color: @arg;
+        .opacity(1);
+    }
+    &::-ms-input-placeholder {
+        color: @arg;
+    }
+    &::-o-input-placeholder {
+        color: @arg;
+    }
+}
+
+// Selection.
+.selection-color(@arg) {
+    & when (length(@arg) = 1) {
+        &::selection {
+            color: @arg;
+        }
+        &::-moz-selection {
+            color: @arg;
+        }
+    }
+    & when (length(@arg) = 2) {
+        &::selection {
+            color: extract(@arg, 1);
+            background: extract(@arg, 2);
+        }
+        &::-moz-selection {
+            color: extract(@arg, 1);
+            background: extract(@arg, 2);
+        }
+    }
+}
+
+// Mozilla Inner Focus Border.
+.inner-focus-border(@arg) {
+    &::-moz-focus-inner {
+        border: @arg;
+    }
+}
