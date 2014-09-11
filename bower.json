@@ -2,10 +2,21 @@
     "name": "babonless",
     "version": "0.0.1",
     "description": "Just another LESS library.",
-
+    "main": "babonless-0.0.1.less",
     "ignore": [
-        "node_modules"
+        "node_modules",
+        "**/.*",
+        "bower_components",
+        "test",
+        "tests"
     ],
-
-    "dependencies": {}
+    "authors": [
+        "Nanang Mahdaen El Agung <nanang@mahdaen.name>"
+    ],
+    "keywords": [
+        "less",
+        "library"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/mahdaen/babonless"
 }
