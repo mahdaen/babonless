@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         concat: {
             build: {
                 files: {
-                    'babonless.js': [
+                    'babonless-0.0.1.less': [
                         'src/_vars.less',
 
                         'src/mixins/_common.less',
