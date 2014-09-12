@@ -36,9 +36,9 @@ Most of the custom mixins using shortand-like arguments. Example:
 We also support mixed mixins. It's mean properties that can have multiple value like `filter: blur() grayscale();` can be mixed without type it all in the arguments. Every mixins that can be mixed always ended with `-e` suffix. E.g: `.blur-e();` `.grayslace-e()`.
 
 ***
-### **Getting Started**
+## **Getting Started**
 ***
-#### **Common Mixins**
+### **Common Mixins**
 
 **Vendor Prefixer**
 Vendor Prefixer lets you create mixins that automatically prefixed.
@@ -48,7 +48,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 
  - **`@prop-name`** - is the property-name. E.g. `appearance`.
  - **`@values`** - is the property-value. E.g. `none`, `block`, `translate()`.
- - **`@origin`** - is does we should include the non-css3 property. E.g. `transform`.
+ - **`@origin`** - is does we should include the non-prefixed property. E.g. `transform`.
  - **`@mixed`** *`comma | space`* - is separator type of values, determine does the mixins can be mixed. 
 
 ***Example:***
@@ -106,7 +106,7 @@ Reset elements box model.
 **`@model`** - is the box sizing model `border-box, padding-box, etc`.
 
 ***
-#### **Animation**
+### **Animation**
 CSS3 animation mixins.
 
 **Animation**
@@ -137,4 +137,48 @@ CSS3 animation mixins.
 `.animation-play-state(@state);`
 
 ***
-#### **Transition**
+### **Transition**
+**Transition**
+`.transition(@values);`
+
+***`Sample:`***
+`.transition(all .3s ease-in-out);`
+
+**Mixed Transition**
+`.transition-e(@values);`
+
+***`Sample:`***
+```less
+.transitioned {
+	.transition-e(opacity .3s ease-in-out);
+	.transition-e(transform .3s ease-in-out .3s);
+}
+```
+***`Result:`***
+```css
+.transitioned {
+	-webkit-transition: opacity .3s ease-in-out, transform .3s ease-in-out .3s;
+	-moz-transition: opacity .3s ease-in-out, transform .3s ease-in-out .3s;
+	-o-transition: opacity .3s ease-in-out, transform .3s ease-in-out .3s;
+	transition: opacity .3s ease-in-out, transform .3s ease-in-out .3s;
+}
+```
+**Transition Property**
+`.transition-property(@prop);`
+
+**Transition Duration**
+`.transition-duration(@duration);`
+
+**Transition Timing Function**
+`.transition-timing-function(@repeat);`
+
+**Transition Delay**
+`.transition-delay(@delay);`
+
+**Public Transitions**
+ - `.public-effect` - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
+ - `.public-effect-fast` - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
+ - `.public-effect-slow` - transition for `all` properties, '.6s` duration and `ease-in-out` easing.
+
+***
+Still writing . . .
