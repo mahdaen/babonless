@@ -2,18 +2,21 @@
 .multi-gradient(@linear: none; @radial: none) {
     & when (isstring(@linear)) and (isstring(@radial)), (length(@radial) >= 2) and (length(@linear) >= 3) {
         background-image: -webkit-linear-gradient(~"@{linear}"), -webkit-radial-gradient(~"@{radial}");
+        background-image: -moz-linear-gradient(~"@{linear}"), -moz-radial-gradient(~"@{radial}");
+        background-image: -ms-linear-gradient(~"@{linear}"), -ms-radial-gradient(~"@{radial}");
         background-image: -o-linear-gradient(~"@{linear}"), -o-radial-gradient(~"@{radial}");
-        background-image: linear-gradient(~"@{linear}"), radial-gradient(~"@{radial}");
     }
     & when (isstring(@linear)), (length(@linear) >= 3) and (@radial = none) {
         background-image: -webkit-linear-gradient(~"@{linear}");
+        background-image: -moz-linear-gradient(~"@{linear}");
+        background-image: -ms-linear-gradient(~"@{linear}");
         background-image: -o-linear-gradient(~"@{linear}");
-        background-image: linear-gradient(~"@{linear}");
     }
     & when (isstring(@radial)), (length(@radial) >= 2) and  (@linear = none) {
         background-image: -webkit-radial-gradient(~"@{radial}");
+        background-image: -moz-radial-gradient(~"@{radial}");
+        background-image: -ms-radial-gradient(~"@{radial}");
         background-image: -o-radial-gradient(~"@{radial}");
-        background-image: radial-gradient(~"@{radial}");
     }
 }
 .linear-gradient(@val) {
