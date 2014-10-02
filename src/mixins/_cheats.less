@@ -30,11 +30,11 @@
     & when (length(@arg) = 2) {
         &::selection {
             color: extract(@arg, 1);
-            background: extract(@arg, 2);
+            background-color: extract(@arg, 2);
         }
         &::-moz-selection {
             color: extract(@arg, 1);
-            background: extract(@arg, 2);
+            background-color: extract(@arg, 2);
         }
     }
 }

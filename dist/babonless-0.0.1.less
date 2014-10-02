@@ -35,20 +35,20 @@
 @mobile-portrait        : ~"only screen and (max-width: 509px) and (min-device-width: 1024px), (max-device-width: 480px) and (orientation: portrait)";
 @mobile-landscape       : ~"only screen and (max-width: 509px) and (min-device-width: 1024px), (max-device-width: 480px) and (orientation: landscape)";
 
-@tablet                 : ~"@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
+@tablet                 : ~"only screen and (min-device-width : 768px) and (max-device-width : 1024px), (min-width: 768px) and (max-width: 1200px)";
 @tablet-portrait        : ~"only screen and (max-device-width: 1024px) and (min-device-width: 481px) and (orientation: portrait)";
 @tablet-landscape       : ~"only screen and (max-width: 989px) and (min-device-width: 1024px), screen and (max-device-width: 480px), (max-device-width: 480px) and (orientation: landscape)";
 
 @desktop                : ~"only screen and (min-width: 1200px)";
 @desktop-mdm            : ~"only screen and (min-width: 1400px)";
-@destkop-fhd            : ~"only screen and (min-width: 1900px)";
-@destkop-whd            : ~"only screen and (min-width: 2500px)";
-@destkop-qhd            : ~"only screen and (min-width: 3400px)";
+@desktop-fhd            : ~"only screen and (min-width: 1800px)";
+@desktop-whd            : ~"only screen and (min-width: 2500px)";
+@desktop-qhd            : ~"only screen and (min-width: 3400px)";
 @desktop-uhd            : ~"only screen and (min-width: 3800px)";
 // Block Debugger.
 .debug-block() {
     * {
-        box-shadow: 0 0 1px red;
+        box-shadow: 0 0 0 1px red !important;
     }
 }
 
@@ -599,40 +599,20 @@
     }
 }
 
-.border-radius(@value;) {
+.border-radius(@value;) when (length(@value) >= 1) {
     .prefixer(border-radius, @value, true);
-
-    -webkit-background-clip: padding;
-       -moz-bakcground-clip: padding-box;
-            background-clip: padding-box;
 }
 .border-top-left-radius(@value;) {
     .prefixer(border-top-left-radius, @value, true);
-
-    -webkit-background-clip: padding;
-    -moz-bakcground-clip: padding-box;
-    background-clip: padding-box;
 }
 .border-top-right-radius(@value;) {
     .prefixer(border-top-right-radius, @value, true);
-
-    -webkit-background-clip: padding;
-    -moz-bakcground-clip: padding-box;
-    background-clip: padding-box;
 }
 .border-bottom-left-radius(@value;) {
     .prefixer(border-bottom-left-radius, @value, true);
-
-    -webkit-background-clip: padding;
-    -moz-bakcground-clip: padding-box;
-    background-clip: padding-box;
 }
 .border-bottom-right-radius(@value;) {
     .prefixer(border-bottom-right-radius, @value, true);
-
-    -webkit-background-clip: padding;
-    -moz-bakcground-clip: padding-box;
-    background-clip: padding-box;
 }
 
 .border-image(@value;) {
@@ -654,6 +634,22 @@
     .prefixer(border-image-width, @value, true);
 }
 
+.border-top-radius(@value) {
+    .border-top-left-radius(@value);
+    .border-top-right-radius(@value);
+}
+.border-right-radius(@value) {
+    .border-top-right-radius(@value);
+    .border-bottom-right-radius(@value);
+}
+.border-bottom-radius(@value) {
+    .border-bottom-left-radius(@value);
+    .border-bottom-right-radius(@value);
+}
+.border-left-radius(@value) {
+    .border-top-left-radius(@value);
+    .border-bottom-left-radius(@value);
+}
 
 // Browser Customization Mixins.
 
@@ -837,18 +833,21 @@
 .multi-gradient(@linear: none; @radial: none) {
     & when (isstring(@linear)) and (isstring(@radial)), (length(@radial) >= 2) and (length(@linear) >= 3) {
         background-image: -webkit-linear-gradient(~"@{linear}"), -webkit-radial-gradient(~"@{radial}");
+        background-image: -moz-linear-gradient(~"@{linear}"), -moz-radial-gradient(~"@{radial}");
+        background-image: -ms-linear-gradient(~"@{linear}"), -ms-radial-gradient(~"@{radial}");
         background-image: -o-linear-gradient(~"@{linear}"), -o-radial-gradient(~"@{radial}");
-        background-image: linear-gradient(~"@{linear}"), radial-gradient(~"@{radial}");
     }
     & when (isstring(@linear)), (length(@linear) >= 3) and (@radial = none) {
         background-image: -webkit-linear-gradient(~"@{linear}");
+        background-image: -moz-linear-gradient(~"@{linear}");
+        background-image: -ms-linear-gradient(~"@{linear}");
         background-image: -o-linear-gradient(~"@{linear}");
-        background-image: linear-gradient(~"@{linear}");
     }
     & when (isstring(@radial)), (length(@radial) >= 2) and  (@linear = none) {
         background-image: -webkit-radial-gradient(~"@{radial}");
+        background-image: -moz-radial-gradient(~"@{radial}");
+        background-image: -ms-radial-gradient(~"@{radial}");
         background-image: -o-radial-gradient(~"@{radial}");
-        background-image: radial-gradient(~"@{radial}");
     }
 }
 .linear-gradient(@val) {
