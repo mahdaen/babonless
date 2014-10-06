@@ -516,10 +516,10 @@ Creates various gradient background.
 #### **Grids**
 Fluid grid generator. Because of less limitations, you must create variable that hold the grid option before you use the mixin. Each option value should be in number format and without unit type.
 
-- `.grid-box(@width @columns @gutter);` - Generate grid container box. Grid container also automatically has `clearfix` style.
-- `.grid-col(@column, @width @columns @gutter);` - Generate grid column box.
-- `.grid-pre(@column, @width @columns @gutter);` - Generate padding as column prefix.
-- `.grid-suf(@column, @width @columns @gutter);` - Generate padding as column suffix.
+- **`.grid-box(@width @columns @gutter);`** - Generate grid container box. Grid container also automatically has `clearfix` style.
+- **`.grid-col(@column, @width @columns @gutter);`** - Generate grid column box.
+- **`.grid-pre(@column, @width @columns @gutter);`** - Generate padding as column prefix.
+- **`.grid-suf(@column, @width @columns @gutter);`** - Generate padding as column suffix.
 
 
 ***`Detail`***
