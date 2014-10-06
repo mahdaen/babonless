@@ -5,7 +5,7 @@ BabonLESS is just another LESS library. BabonLESS help you with CSS3 mixins and 
 Example:
 ```less
 .flying-block {
-	.block(100%);
+	.block(50%);
 	.absolute(50% none none 50%);
 	.translate(-50% -50%);
 	.blur-e(3px);
@@ -110,6 +110,7 @@ Reset elements box model.
 CSS3 animation mixins.
 
 **Animation**
+
 `.animation(@value);`
 
 **Animation Name.**
@@ -179,6 +180,89 @@ CSS3 animation mixins.
  - `.public-effect` - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
  - `.public-effect-fast` - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
  - `.public-effect-slow` - transition for `all` properties, '.6s` duration and `ease-in-out` easing.
+
+***
+## **Border**
+**Border**
+`.border(@value);`
+
+-`@value` ~ is the border shorthand. Format can be `top-bottom lef-right style color` or `top right bottom left style color`. Use `none` as border size to skip the side.
+
+***`Sample`***
+```less
+// top-bottom and lef-right side
+.bordered {
+	.border(1px 2px solid #ccc);
+}
+// All side
+.bordered-2 {
+	.border(1px 2px 3px 4px solid #ccc);
+}
+// Only top-bottom side.
+.bordered-3 {
+	.border(1px none solid #ccc);
+}
+```
+***`Result`***
+```css
+.bordered {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-left: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+}
+.bordered-2 {
+	border-top: 1px solid #ccc;
+	border-right: 2px solid #ccc;
+	border-bottom: 3px solid #ccc;
+	border-left: 4px solid #ccc;
+}
+.bordered-3 {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+```
+**Border Radius**
+`.border-radius(@radius);` 
+
+**Border Top Left Radius**
+`.border-top-left-radius(@radius);`
+
+**Border Top Right Radius**
+`.border-top-right-radius(@radius);`
+
+**Border Bottom Left Radius**
+`.border-top-left-radius(@radius);`
+
+**Border Bottom Left Radius**
+`.border-top-left-radius(@radius);`
+
+**Border Image**
+`.border-image(@value);`
+
+**Border Image Ouset**
+`.border-image-outset(@value);`
+
+**Border Image Repeat**
+`.border-image-repeat(@value);`
+
+**Border Image Slice**
+`.border-image-slice(@value);`
+
+**Border Image Source**
+`.border-image-source(@value);`
+
+**Border Image Width**
+`.border-image-width(@value);`
+
+**Border Side Radius**
+Border radius for each side, not each corner.
+
+`.border-top-radius(@radius);`
+`.border-right-radius(@radius);`
+`.border-bottom-radius(@radius);`
+`.border-left-radius(@radius);`
+
 
 ***
 Still writing . . .
