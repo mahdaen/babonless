@@ -38,7 +38,7 @@ We also support mixed mixins. It's mean properties that can have multiple value 
 ***
 ## **Getting Started**
 ***
-### **Common Mixins**
+### **Custom Mixins**
 
 **Vendor Prefixer**
 Vendor Prefixer lets you create mixins that automatically prefixed.
@@ -104,6 +104,54 @@ Reset elements box model.
 `.box-sizing(@model);`
 
 **`@model`** - is the box sizing model `border-box, padding-box, etc`.
+
+**Container Box**
+
+`.container-box(@max-width, @padding);`
+
+- **`@max-width`** ~ is the max-width of container. It's optional.
+- **`@padding`** ~ is the container padding.
+
+***`Sample`***
+```less
+.container {
+	.container-box(960px, 0 20px);
+}
+```
+***`Output`***
+```css
+.container {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+```
+
+**Clearfix**
+
+`.clearfix(@padding, @margin);`
+
+- **`@padding`** ~ *`optional`*.
+- **`@margin`** ~ *`optional`*.
+
+***`Sample`***
+```less
+.float-box {
+	.clearfix;
+}
+```
+***`Output`***
+```css
+.float-box {
+	*zoom: 1;
+}
+.float-box:before, .float-box:after {
+	display: table;
+	content: "";
+}
+.float-box:after {
+	clear: 
 
 ***
 ### **Animation**
@@ -291,6 +339,8 @@ Border radius for each side, not each corner.
 `.border-bottom-radius(@radius);`
 
 `.border-left-radius(@radius);`
+
+***
 
 
 ***
