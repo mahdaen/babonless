@@ -114,32 +114,41 @@ CSS3 animation mixins.
 `.animation(@value);`
 
 **Animation Name.**
+
 `.animation-name(@name);`
 
 **Animation Duration.**
+
 `.animation-duration(@duration);`
 
 **Animation Timing Function.**
+
 `.animation-timing-function(@timing);`
 
 **Animation Delay.**
+
 `.animation-delay(@delay);`
 
 **Animation Iteration Count.**
+
 `.animation-iteration-count(@repeat);`
 
 **Animation Direction.**
+
 `.animation-direction(@direction);`
 
 **Animation Fill Mode.**
+
 `.animation-fill-mode(@mode);`
 
 **Animation Play State.**
+
 `.animation-play-state(@state);`
 
 ***
 ### **Transition**
 **Transition**
+
 `.transition(@values);`
 
 ***`Sample:`***
@@ -165,15 +174,19 @@ CSS3 animation mixins.
 }
 ```
 **Transition Property**
+
 `.transition-property(@prop);`
 
 **Transition Duration**
+
 `.transition-duration(@duration);`
 
 **Transition Timing Function**
+
 `.transition-timing-function(@repeat);`
 
 **Transition Delay**
+
 `.transition-delay(@delay);`
 
 **Public Transitions**
