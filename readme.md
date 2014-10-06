@@ -97,15 +97,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-#### **Most Used**
-
-**Box Sizing**
-Reset elements box model.
-`.box-sizing(@model);`
-
-**`@model`** - is the box sizing model `border-box, padding-box, etc`.
-
-**Container Box**
+##### **Container Box**
 
 `.container-box(@max-width, @padding);`
 
@@ -127,8 +119,8 @@ Reset elements box model.
 	padding: 0 20px;
 }
 ```
-
-**Clearfix**
+***
+##### **Clearfix**
 
 `.clearfix(@padding, @margin);`
 
@@ -152,56 +144,9 @@ Reset elements box model.
 }
 .float-box:after {
 	clear: 
-
+}
+```
 ***
-### **Animation**
-CSS3 animation mixins.
-
-**Animation**
-
-`.animation(@value);`
-
-**Animation Name.**
-
-`.animation-name(@name);`
-
-**Animation Duration.**
-
-`.animation-duration(@duration);`
-
-**Animation Timing Function.**
-
-`.animation-timing-function(@timing);`
-
-**Animation Delay.**
-
-`.animation-delay(@delay);`
-
-**Animation Iteration Count.**
-
-`.animation-iteration-count(@repeat);`
-
-**Animation Direction.**
-
-`.animation-direction(@direction);`
-
-**Animation Fill Mode.**
-
-`.animation-fill-mode(@mode);`
-
-**Animation Play State.**
-
-`.animation-play-state(@state);`
-
-***
-### **Transition**
-**Transition**
-
-`.transition(@values);`
-
-***`Sample:`***
-`.transition(all .3s ease-in-out);`
-
 **Mixed Transition**
 `.transition-e(@values);`
 
@@ -221,30 +166,14 @@ CSS3 animation mixins.
 	transition: opacity .3s ease-in-out, transform .3s ease-in-out .3s;
 }
 ```
-**Transition Property**
-
-`.transition-property(@prop);`
-
-**Transition Duration**
-
-`.transition-duration(@duration);`
-
-**Transition Timing Function**
-
-`.transition-timing-function(@repeat);`
-
-**Transition Delay**
-
-`.transition-delay(@delay);`
-
-**Public Transitions**
+***
+##### **Public Transitions**
  - `.public-effect` - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
  - `.public-effect-fast` - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
  - `.public-effect-slow` - transition for `all` properties, '.6s` duration and `ease-in-out` easing.
 
 ***
-## **Border**
-**Border**
+##### **Border**
 
 `.border(@value);`
 
@@ -284,52 +213,8 @@ CSS3 animation mixins.
 	border-bottom: 1px solid #ccc;
 }
 ```
-**Border Radius**
 
-`.border-radius(@radius);` 
-
-**Border Top Left Radius**
-
-`.border-top-left-radius(@radius);`
-
-**Border Top Right Radius**
-
-`.border-top-right-radius(@radius);`
-
-**Border Bottom Left Radius**
-
-`.border-top-left-radius(@radius);`
-
-**Border Bottom Left Radius**
-
-`.border-top-left-radius(@radius);`
-
-**Border Image**
-
-`.border-image(@value);`
-
-**Border Image Ouset**
-
-`.border-image-outset(@value);`
-
-**Border Image Repeat**
-
-`.border-image-repeat(@value);`
-
-**Border Image Slice**
-
-`.border-image-slice(@value);`
-
-**Border Image Source**
-
-`.border-image-source(@value);`
-
-**Border Image Width**
-
-`.border-image-width(@value);`
-
-**Border Side Radius**
-
+##### **Border Side Radius**
 Border radius for each side, not each corner.
 
 `.border-top-radius(@radius);`
@@ -341,6 +226,87 @@ Border radius for each side, not each corner.
 `.border-left-radius(@radius);`
 
 ***
+### **CSS3 Standard**
+- `.appearance(@val);`
+- `.animation(@value);`
+- `.animation-name(@name);`
+- `.animation-duration(@duration);`
+- `.animation-timing-function(@timing);`
+- `.animation-delay(@delay);`
+- `.animation-iteration-count(@repeat);`
+- `.animation-direction(@direction);`
+- `.animation-fill-mode(@mode);`
+- `.animation-play-state(@state);`
+- `.backface-visibility(@val);`
+- `.background-clip(@value);`
+- `.background-origin(@value);`
+- `.background-size(@value);`
+- `.border-image(@value);`
+- `.border-image-outset(@value);`
+- `.border-image-repeat(@value);`
+- `.border-image-slice(@value);`
+- `.border-image-source(@value);`
+- `.border-image-width(@value);`
+- `.border-radius(@radius);` 
+- `.border-top-left-radius(@radius);`
+- `.border-top-right-radius(@radius);`
+- `.border-top-left-radius(@radius);`
+- `.border-top-left-radius(@radius);`
+- `.box-align(@value);`
+- `.box-direction(@value);`
+- `.box-decoration-break(@value);`
+- `.box-flex(@value);`
+- `.box-flex-group(@value);`
+- `.box-line(@value);`
+- `.box-ordinal-group(@value);`
+- `.box-orien(@value);`
+- `.box-pack(@value);`
+- `.box-sizing(@val);`
+- `.break-after(@value);`
+- `.break-before(@value);`
+- `.break-inside(@value);`
+- `.clip-path(@val);`
+- `.columns(@value);`
+- `.column-count(@value);`
+- `.column-fill(@value);`
+- `.column-gap(@value);`
+- `.column-rule(@value);`
+- `.column-rule-style(@value);`
+- `.column-rule-width(@value);`
+- `.column-span(@value);`
+- `.column-width(@value);`
+- `.filter(@val);`
+- `.grid-columns(@val);`
+- `.grid-rows(@val);`
+- `.hanging-punctuation(@val);`
+- `.icon(@val);`
+- `.marquee-direction(@value);`
+- `.marquee-play-count(@value);`
+- `.marquee-speed(@value);`
+- `.marquee-style(@value);`
+- `.nav-index(@value);`
+- `.nav-left(@v);`
+- `.nav-right(@v);`
+- `.nav-up(@v);`
+- `.opacity(@val);`
+- `.punctuation-trim(@val);`
+- `.resize(@val);`
+- `.rotation(@v);`
+- `.rotation-point(@v);`
+- `.target(@val);`
+- `.target-name(@val);`
+- `.target-new(@val);`
+- `.target-position(@val);`
+- `.text-wrap(@val);`
+- `.text-size-adjust(@val);`
+- `.transition(@values);`
+- `.transition-property(@prop);`
+- `.transition-duration(@duration);`
+- `.transition-timing-function(@repeat);`
+- `.transition-delay(@delay);`
+- `.user-select(@val);`
+- `.word-berak(@val);`
+- `.word-wrap(@val);`
 
 
 ***
