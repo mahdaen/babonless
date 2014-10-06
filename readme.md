@@ -459,6 +459,7 @@ Create furious gradient background.
 - **`.radial-gradients(@gradient-values);`** - Create multiple values radial gradient.
 - **`.gradients(@gradient-values);`** - Create multiple gradients for both `linear` and `radial`. For this, you have to define the gradient type in each value. E.g: `linear, 90deg, #fff, #ccc` or `radial, #fff, #ccc`. You have to hold your each value in one variable as well.
 
+---
 - **`@gradient-value`** - is sets of gradient value. Because of less limitations, the gradient value must be using string format or you can create variable to hold the value before using the mixin.
 - **`@gradient-values`**  - is a list of gradient value set. For this, you must hold your each value in one variable.
 
