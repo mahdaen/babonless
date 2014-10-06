@@ -482,8 +482,11 @@ Create furious gradient background.
     @grad-c: 180deg, hrgba(#fff, 0.2), hrgba(#fff, 0.4);
 
     .linear-gradients(@grad-a @grad-b @grad-c);
-}```
+}
+```
+
 ***`Output`***
+
 ```css
 .gradient-bg {
 	background-image: -webkit-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5)), -webkit-radial-gradient(rgba(255, 34, 153, 0.5), rgba(51, 255, 136, 0.5)), -webkit-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
@@ -505,6 +508,7 @@ Create furious gradient background.
 	background-image: -ms-linear-gradient(90deg, #ffffff, #cccccc, #999999), -ms-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -ms-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
 	background-image: -o-linear-gradient(90deg, #ffffff, #cccccc, #999999), -o-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -o-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
 }
+
 ```
 
 
