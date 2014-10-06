@@ -184,6 +184,7 @@ CSS3 animation mixins.
 ***
 ## **Border**
 **Border**
+
 `.border(@value);`
 
 -`@value` ~ is the border shorthand. Format can be `top-bottom lef-right style color` or `top right bottom left style color`. Use `none` as border size to skip the side.
@@ -223,44 +224,59 @@ CSS3 animation mixins.
 }
 ```
 **Border Radius**
+
 `.border-radius(@radius);` 
 
 **Border Top Left Radius**
+
 `.border-top-left-radius(@radius);`
 
 **Border Top Right Radius**
+
 `.border-top-right-radius(@radius);`
 
 **Border Bottom Left Radius**
+
 `.border-top-left-radius(@radius);`
 
 **Border Bottom Left Radius**
+
 `.border-top-left-radius(@radius);`
 
 **Border Image**
+
 `.border-image(@value);`
 
 **Border Image Ouset**
+
 `.border-image-outset(@value);`
 
 **Border Image Repeat**
+
 `.border-image-repeat(@value);`
 
 **Border Image Slice**
+
 `.border-image-slice(@value);`
 
 **Border Image Source**
+
 `.border-image-source(@value);`
 
 **Border Image Width**
+
 `.border-image-width(@value);`
 
 **Border Side Radius**
+
 Border radius for each side, not each corner.
 
 `.border-top-radius(@radius);`
+
 `.border-right-radius(@radius);`
+
 `.border-bottom-radius(@radius);`
+
 `.border-left-radius(@radius);`
 
 
