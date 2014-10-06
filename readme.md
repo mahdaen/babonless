@@ -40,7 +40,7 @@ We also support mixed mixins. It's mean properties that can have multiple value 
 ***
 ### **Custom Mixins**
 
-**Vendor Prefixer**
+#### **Vendor Prefixer**
 Vendor Prefixer lets you create mixins that automatically prefixed.
 
 **`.prefixer(@prop-name; @values; @origin; @mixed);`**
@@ -96,7 +96,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-##### **Container Box**
+#### **Container Box**
 **`.container-box(@max-width, @padding);`**
 
 - **`@max-width`** ~ is the max-width of container. It's optional.
@@ -118,7 +118,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-##### **Clearfix**
+#### **Clearfix**
 **`.clearfix(@padding, @margin);`**
 
 - **`@padding`** ~ *`optional`*.
@@ -144,7 +144,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-##### **Mixed Transition**
+#### **Mixed Transition**
 **`.transition-e(@values);`**
 
 ***`Sample:`***
@@ -164,13 +164,13 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-##### **Public Transitions**
+#### **Public Transitions**
  - **`.public-effect`** - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
  - **`.public-effect-fast`** - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
  - **`.public-effect-slow`** - transition for `all` properties, `.6s` duration and `ease-in-out` easing.
 
 ***
-##### **Border**
+#### **Border**
 **`.border(@value);`**
 
 - **`@value`** ~ is the border shorthand. Format can be `top-bottom lef-right style color` or `top right bottom left style color`. Use `none` as border size to skip the side.
@@ -210,7 +210,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 
-##### **Border Side Radius**
+#### **Border Side Radius**
 Border radius for each side, not each corner.
 
 - **`.border-top-radius(@radius);`** ~ For `border-top-left-radius` and `border-top-right-radius`.
@@ -219,7 +219,7 @@ Border radius for each side, not each corner.
 - **`.border-left-radius(@radius);`** ~ For `border-bottom-left-radius` and `border-top-left-radius`.
 
 ***
-##### **Text Overflow**
+#### **Text Overflow**
 **`.text-overflow;`**
 
 ***`Sample`***
@@ -238,7 +238,7 @@ Border radius for each side, not each corner.
 ```
 
 ***
-##### **Hyphens**
+#### **Hyphens**
 **`.hyphens(@value);`** - Default value is `auto`.
 
 ***
@@ -255,13 +255,13 @@ Display red border in all box to show does the layout is right or not.
 ```
 
 ***
-##### **Input Placeholder Color**
+#### **Input Placeholder Color**
 **`.input-placehoder(@color);`**
 
 - **`@color`** ~ is the input placeholder color.
 
 ***
-##### **Selection Color**
+#### **Selection Color**
 Customize the selection text-color and background-color.
 
 **`.selection-color(@values)`**
@@ -296,13 +296,13 @@ Customize the selection text-color and background-color.
 ```	
 
 ***
-###### **Mozilla Inner Focus Border**
+#### **Mozilla Inner Focus Border**
 Customize the Mozilla Inner Focus Border. Usually Firefox browser will show dotted border on anchor, submit button etc. You can hide or set the style with this.
 
 **`.inner-focus-border(@border);`**
 
 ***
-##### **Display**
+#### **Display**
 Custom display mixins.
 
 - **`.block(@width @height);`** - Set display to block with or without size.
@@ -312,7 +312,6 @@ Custom display mixins.
 - **`.table-cell(@width @height);`** - Set display to table-cell with or without size.
 - **`.flex-box(@width @height);`** - Set display to flex-box with or without size.
 - **`.size(@width @height);`** - Set the box size.
-
 - **`.invisible;`** - Set the visibility to hidden and opacity to 0.
 - **`.visible;`** - Set the visibility to visible and opacity to 1.
 - **`.hide;`** - Set display to none.
