@@ -443,6 +443,74 @@ To get it working, your fonts must have formatted file name like sample below.
 ```
 ***`Love it? :P`***
 
+***
+#### **Font Smoothing**
+Provide font smoothing capability for web-font.
+
+**`.font-smoothing;`**
+
+***
+#### **Gradient Background**
+Create furious gradient background.
+
+- **`.linear-gradient(@gradient-value);`** - Creates single value linear gradient.
+- **`.linear-gradients(@gradient-values);`** - Create multiple values linear gradient.
+- **`.radial-gradient(@gradient-value);`** - Create single value radial gradient.
+- **`.radial-gradients(@gradient-values);`** - Create multiple values radial gradient.
+- **`.gradients(@gradient-values);`** - Create multiple gradients for both `linear` and `radial`. For this, you have to define the gradient type in each value. E.g: `linear, 90deg, #fff, #ccc` or `radial, #fff, #ccc`. You have to hold your each value in one variable as well.
+
+- **`@gradient-value`** - is sets of gradient value. Because of less limitations, the gradient value must be using string format or you can create variable to hold the value before using the mixin.
+- **`@gradient-values`**  - is a list of gradient value set. For this, you must hold your each value in one variable.
+
+***`Sample`***
+```less
+.gradient-bg {
+    @a: linear, 20deg, hrgba(#83f, 0.5), hrgba(#f9c, 0.5), hrgba(#19f, 0.5);
+    @b: radial, hrgba(#f29, 0.5), hrgba(#3f8, 0.5);
+    @c: linear, 20deg, hrgba(#83f, 0.5), hrgba(#f9c, 0.5), hrgba(#19f, 0.5);
+
+    .gradients(@a @b @c);
+}
+.linear-gradient-bg {
+    @v: 20deg, hrgba(#83f, 0.5), hrgba(#f9c, 0.5), hrgba(#19f, 0.5);
+
+    .linear-gradient(@v);
+}
+.multiple-linear-gradient-bg {
+    @grad-a: 90deg, #fff, #ccc, #999;
+    @grad-b: 26deg, hrgba(#000, 0.1), hrgba(#fff, 0.3);
+    @grad-c: 180deg, hrgba(#fff, 0.2), hrgba(#fff, 0.4);
+
+    .linear-gradients(@grad-a @grad-b @grad-c);
+}```
+***`Output`***
+```css
+.gradient-bg {
+	background-image: -webkit-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5)), -webkit-radial-gradient(rgba(255, 34, 153, 0.5), rgba(51, 255, 136, 0.5)), -webkit-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -moz-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5)), -moz-radial-gradient(rgba(255, 34, 153, 0.5), rgba(51, 255, 136, 0.5)), -moz-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -ms-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5)), -ms-radial-gradient(rgba(255, 34, 153, 0.5), rgba(51, 255, 136, 0.5)), -ms-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -o-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5)), -o-radial-gradient(rgba(255, 34, 153, 0.5), rgba(51, 255, 136, 0.5)), -o-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+}
+
+.linear-gradient-bg {
+	background-image: -webkit-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -moz-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -ms-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+	background-image: -o-linear-gradient(20deg, rgba(136, 51, 255, 0.5), rgba(255, 153, 204, 0.5), rgba(17, 153, 255, 0.5));
+}
+
+.multiple-linear-gradient-bg {
+	background-image: -webkit-linear-gradient(90deg, #ffffff, #cccccc, #999999), -webkit-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+	background-image: -moz-linear-gradient(90deg, #ffffff, #cccccc, #999999), -moz-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -moz-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+	background-image: -ms-linear-gradient(90deg, #ffffff, #cccccc, #999999), -ms-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -ms-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+	background-image: -o-linear-gradient(90deg, #ffffff, #cccccc, #999999), -o-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -o-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+}
+```
+
+
+
+
+
 
 ***
 ### **CSS3 Standard**

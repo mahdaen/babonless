@@ -853,11 +853,98 @@
         background-image: -o-radial-gradient(~"@{radial}");
     }
 }
+.babon-multi-gradient(@type; @gradient; @i: 1; @wval: ""; @zval: ""; @oval: ""; @mval: "") when (length(@gradient) >= @i) {
+    @gval: extract(@gradient, @i);
+    @blnk:",";
+
+    & when (@i < length(@gradient)) {
+        @nwval:~"@{wval}" ~"-webkit-@{type}-gradient(@{gval})" ~"@{blnk}";
+        @nzval:~"@{zval}" ~"-moz-@{type}-gradient(@{gval})" ~"@{blnk}";
+        @nmval:~"@{mval}" ~"-ms-@{type}-gradient(@{gval})" ~"@{blnk}";
+        @noval:~"@{oval}" ~"-o-@{type}-gradient(@{gval})" ~"@{blnk}";
+
+        .babon-multi-gradient(@type, @gradient, (@i + 1), @nwval, @nzval, @noval, @nmval);
+    }
+    & when (@i = length(@gradient)) {
+        @nwval:~"@{wval}" ~"-webkit-@{type}-gradient(@{gval})";
+        @nzval:~"@{zval}" ~"-moz-@{type}-gradient(@{gval})";
+        @nmval:~"@{mval}" ~"-ms-@{type}-gradient(@{gval})";
+        @noval:~"@{oval}" ~"-o-@{type}-gradient(@{gval})";
+
+        background-image:@nwval;
+        background-image:@nzval;
+        background-image:@nmval;
+        background-image:@noval;
+    }
+}
+
+.babon-gradient-value-compile(@type; @value; @gradient; @x; @wval; @zval; @oval; @mval; @i: 2; @def: "") when (length(@value) >= @i) {
+    @vl: extract(@value, @i);
+    @bk: ",";
+
+    & when (@i < length(@value)) {
+        @nv:~"@{def}" @vl ~"@{bk}";
+
+        .babon-gradient-value-compile(@type, @value, @gradient, @x, @wval, @zval, @oval, @mval, (@i + 1), @nv);
+    }
+    & when (@i = length(@value)) {
+        @nv:~"@{def}"@vl;
+
+        @nwval:~"@{wval}" ~"-webkit-@{type}-gradient(@{nv} )";
+        @nzval:~"@{zval}" ~"-moz-@{type}-gradient(@{nv} )";
+        @nmval:~"@{mval}" ~"-ms-@{type}-gradient(@{nv} )";
+        @noval:~"@{oval}" ~"-o-@{type}-gradient(@{nv} )";
+
+        .babon-gradient-generator(@gradient, @x, @nwval, @nzval, @noval, @nmval);
+    }
+}
+
+.babon-gradient-value-extract(@value; @gradient; @x; @wval; @zval; @oval; @mval) when(length(@value) >= 2) {
+    @type: extract(@value, 1);
+
+    .babon-gradient-value-compile(@type, @value, @gradient, @x, @wval, @zval, @oval, @mval);
+}
+
+.babon-gradient-generator(@gradient; @i: 1; @wval: ""; @zval: ""; @oval: ""; @mval: "") {
+    @blnk: ",";
+
+    & when (@i = 1) and (length(@gradient) > 1) {
+        @gval: extract(@gradient, @i);
+
+        .babon-gradient-value-extract(@gval, @gradient, (@i + 1), @wval, @zval, @oval, @mval);
+    }
+    & when (@i > 1) and (@i <= length(@gradient)) {
+        @gval: extract(@gradient, @i);
+
+        @nwval:~"@{wval}"~"@{blnk}";
+        @nzval:~"@{zval}"~"@{blnk}";
+        @nmval:~"@{mval}"~"@{blnk}";
+        @noval:~"@{oval}"~"@{blnk}";
+
+        .babon-gradient-value-extract(@gval, @gradient, (@i + 1), @nwval, @nzval, @noval, @nmval);
+    }
+    & when (@i > length(@gradient)) {
+        background-image:@wval;
+        background-image:@zval;
+        background-image:@mval;
+        background-image:@oval;
+    }
+}
+
+.gradients(@values) {
+    .babon-gradient-generator(@values);
+}
 .linear-gradient(@val) {
     .multi-gradient(@val, none);
 }
+.linear-gradients(@val) {
+    .babon-multi-gradient(linear, @val);
+}
 .radial-gradient(@val) {
     .multi-gradient(none, @val);
+}
+.radial-gradients(@val) {
+    .babon-multi-gradient(radial, @val);
 }
 
 // Grid container generator.
