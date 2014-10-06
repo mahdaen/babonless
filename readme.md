@@ -356,6 +356,36 @@ Custom display mixins.
 }
 ```
 
+***
+#### **Font-Face Generator**
+Help to generate font-face.
+
+**`.font-family(@name @path);`**
+
+- **`@name`** ~ is the `font-family` name.
+- **`@path`** ~ is the font location and font name without extension.
+
+***`Sample`***
+```less
+.arial-family {
+	.font-family("Arial" "../fonts/arial");
+}
+```
+***`Output`***
+```css
+@font-face {
+	font-family: "Arial";
+	src: local("Arial");
+	src: url("../fonts/arial.eot");
+	src: url("../fonts/arial.eot#iefix") format("embedded-opentype"),
+		 url("../fonts/arial.svg") format("svg"),
+		 url("../fonts/arial.ttf") format("truetype"),
+		 url("../fonts/arial.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-streetch: normal;
+}
+```
 
 
 
