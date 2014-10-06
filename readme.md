@@ -451,13 +451,13 @@ Provide font smoothing capability for web-font.
 
 ***
 #### **Gradient Background**
-Create furious gradient background.
+Creates various gradient background.
 
 - **`.linear-gradient(@gradient-value);`** - Creates single value linear gradient.
 - **`.linear-gradients(@gradient-values);`** - Create multiple values linear gradient.
 - **`.radial-gradient(@gradient-value);`** - Create single value radial gradient.
 - **`.radial-gradients(@gradient-values);`** - Create multiple values radial gradient.
-- **`.gradients(@gradient-values);`** - Create multiple gradients for both `linear` and `radial`. For this, you have to define the gradient type in each value. E.g: `linear, 90deg, #fff, #ccc` or `radial, #fff, #ccc`. You have to hold your each value in one variable as well.
+- **`.gradients(@gradient-values);`** - Create multiple and unlimited gradients for both `linear` and `radial`. For this, you have to define the gradient type in each value. E.g: `linear, 90deg, #fff, #ccc` or `radial, #fff, #ccc`. You have to hold your each value in one variable as well.
 
 ---
 - **`@gradient-value`** - is sets of gradient value. Because of less limitations, the gradient value must be using string format or you can create variable to hold the value before using the mixin.
@@ -509,10 +509,102 @@ Create furious gradient background.
 	background-image: -ms-linear-gradient(90deg, #ffffff, #cccccc, #999999), -ms-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -ms-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
 	background-image: -o-linear-gradient(90deg, #ffffff, #cccccc, #999999), -o-linear-gradient(26deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.3)), -o-linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
 }
+```
+***`Love it? ;)`***
 
+***
+#### **Grids**
+Fluid grid generator. Because of less limitations, you must create variable that hold the grid option before you use the mixin. Each option value should be in number format and without unit type.
+
+- `.grid-box(@width @columns @gutter);` - Generate grid container box. Grid container also automatically has `clearfix` style.
+- `.grid-col(@column, @width @columns @gutter);` - Generate grid column box.
+- `.grid-pre(@column, @width @columns @gutter);` - Generate padding as column prefix.
+- `.grid-suf(@column, @width @columns @gutter);` - Generate padding as column suffix.
+
+
+***`Detail`***
+- **`@width`** - is the width of grid container.
+- **`@columns`** - is the column count of grid container.
+- **`@gutter`** - is the gutter width for each column. You'll need to add `margin-bottom` if you wanna set the bottom gutter.
+
+***`Sample`***
+```less
+.thumbnail-box {
+    @grid: 960 12 20;
+
+    .grid-box(@grid);
+
+    .thumbnail {
+        .grid-col(4, @grid);
+    }
+}
+```
+***`Output`***
+```css
+.thumbnail-box {
+	width: 102.08333333%;
+	margin-left: -2.08333333%;
+}
+
+.thumbnail-box:before,
+.thumbnail-box:after {
+	content: " ";
+	display: table;
+}
+
+.thumbnail-box:after {
+	clear: both;
+}
+
+.thumbnail-box .thumbnail {
+	width: 31.25%;
+	margin-left: 2.08333333%;
+	float: left;
+}
 ```
 
+***
+#### **Position**
+Positioning shorthand. You can skip the position value with `none`.
 
+- **`.absolute(@pos);`** - Set position to absolute and define the position value. `@pos` format is `top-bottom left-right` and `top right bottom left`.
+- **`.relative(@pos);`** - Set position to relative and define the position value.
+- **`.fixed(@pos);`** - Set position to fixed and define the position value.
+- **`.absolute-center;`** - Set position to absolute and center to horizontal.
+- **`.absolute-middle;`** - Set position to absolute and center to vertical.
+- **`.absolute-center-all;`** - Set position to absolute and center to both horizontal and vertical.
+
+***`Sample`***
+```less
+.abs {
+	.absolute(0 none none 10px);
+}
+.fix {
+	.fixed(10px 20px);
+}
+.rel {
+	.relative(2px);
+}
+```
+***`Output`***
+```css
+.abs {
+	position: absolute;
+	top: 0;
+	left: 10px;
+}
+
+.fix {
+	position: fixed;
+	top: 10px;
+	right: 20px;
+}
+
+.rel {
+	position: relative;
+	top: 2px;
+}
+```
 
 
 
