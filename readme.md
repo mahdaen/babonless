@@ -367,9 +367,7 @@ Help to generate font-face.
 
 ***`Sample`***
 ```less
-.arial-family {
-	.font-family("Arial" "../fonts/arial");
-}
+.font-family("Arial" "../fonts/arial");
 ```
 ***`Output`***
 ```css
@@ -387,7 +385,63 @@ Help to generate font-face.
 }
 ```
 
+***
+#### **Batch Font-Face Generator**
+Generate font-face collections without bored. :D
+To get it working, your fonts must have formatted file name like sample below.
 
+**`.font-faces(@name @path, @styles);`**
+
+- **`@name`** - is the `font-family` name.
+- **`@path`** - is the font location without file name and extension.
+- **`@styles`** - is the `font-style` list.
+
+***`Sample`***
+```less
+.font-faces("Roboto" "../fonts/", Regular Bold Italic);
+```
+***`Output`***
+```css
+@font-face {
+	font-family: "Roboto Regular";
+	src: local("Roboto Regular");
+	src: url("../fonts//Roboto-Regular.eot");
+	src: url("../fonts//Roboto-Regular.eot#iefix") format("embedded-opentype"),
+		 url("../fonts//Roboto-Regular.svg") format("svg"),
+		 url("../fonts//Roboto-Regular.ttf") format("truetype"),
+		 url("../fonts//Roboto-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-streetch: normal;
+}
+
+@font-face {
+	font-family: "Roboto Bold";
+	src: local("Roboto Bold");
+	src: url("../fonts//Roboto-Bold.eot");
+	src: url("../fonts//Roboto-Bold.eot#iefix") format("embedded-opentype"),
+		 url("../fonts//Roboto-Bold.svg") format("svg"),
+		 url("../fonts//Roboto-Bold.ttf") format("truetype"),
+		 url("../fonts//Roboto-Bold.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-streetch: normal;
+}
+
+@font-face {
+	font-family: "Roboto Italic";
+	src: local("Roboto Italic");
+	src: url("../fonts//Roboto-Italic.eot");
+	src: url("../fonts//Roboto-Italic.eot#iefix") format("embedded-opentype"),
+		 url("../fonts//Roboto-Italic.svg") format("svg"),
+		 url("../fonts//Roboto-Italic.ttf") format("truetype"),
+		 url("../fonts//Roboto-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-streetch: normal;
+}
+```
+***`Love it? :P`***
 
 
 ***
