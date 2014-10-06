@@ -42,9 +42,8 @@ We also support mixed mixins. It's mean properties that can have multiple value 
 
 **Vendor Prefixer**
 Vendor Prefixer lets you create mixins that automatically prefixed.
-```less
-.prefixer(@prop-name; @values; @origin; @mixed);
-```
+
+**`.prefixer(@prop-name; @values; @origin; @mixed);`**
 
  - **`@prop-name`** - is the property-name. E.g. `appearance`.
  - **`@values`** - is the property-value. E.g. `none`, `block`, `translate()`.
@@ -98,8 +97,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 ```
 ***
 ##### **Container Box**
-
-`.container-box(@max-width, @padding);`
+**`.container-box(@max-width, @padding);`**
 
 - **`@max-width`** ~ is the max-width of container. It's optional.
 - **`@padding`** ~ is the container padding.
@@ -121,8 +119,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 ```
 ***
 ##### **Clearfix**
-
-`.clearfix(@padding, @margin);`
+**`.clearfix(@padding, @margin);`**
 
 - **`@padding`** ~ *`optional`*.
 - **`@margin`** ~ *`optional`*.
@@ -147,8 +144,8 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 }
 ```
 ***
-**Mixed Transition**
-`.transition-e(@values);`
+##### **Mixed Transition**
+**`.transition-e(@values);`**
 
 ***`Sample:`***
 ```less
@@ -168,16 +165,15 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 ```
 ***
 ##### **Public Transitions**
- - `.public-effect` - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
- - `.public-effect-fast` - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
- - `.public-effect-slow` - transition for `all` properties, '.6s` duration and `ease-in-out` easing.
+ - **`.public-effect`** - transition for `all` properties with `.3s` duration and `ease-in-out` easing.
+ - **`.public-effect-fast`** - transition for `all` properties, `.2s` duration and `ease-in-out` easing.
+ - **`.public-effect-slow`** - transition for `all` properties, `.6s` duration and `ease-in-out` easing.
 
 ***
 ##### **Border**
+**`.border(@value);`**
 
-`.border(@value);`
-
--`@value` ~ is the border shorthand. Format can be `top-bottom lef-right style color` or `top right bottom left style color`. Use `none` as border size to skip the side.
+- **`@value`** ~ is the border shorthand. Format can be `top-bottom lef-right style color` or `top right bottom left style color`. Use `none` as border size to skip the side.
 
 ***`Sample`***
 ```less
@@ -217,13 +213,153 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 ##### **Border Side Radius**
 Border radius for each side, not each corner.
 
-`.border-top-radius(@radius);`
+- **`.border-top-radius(@radius);`** ~ For `border-top-left-radius` and `border-top-right-radius`.
+- **`.border-right-radius(@radius);`** ~ For `border-top-right-radius` and `border-bottom-right-radius`.
+- **`.border-bottom-radius(@radius);`** ~ For `border-bottom-left-radius` and `border-bottom-right-radius`.
+- **`.border-left-radius(@radius);`** ~ For `border-bottom-left-radius` and `border-top-left-radius`.
 
-`.border-right-radius(@radius);`
+***
+##### **Text Overflow**
+**`.text-overflow;`**
 
-`.border-bottom-radius(@radius);`
+***`Sample`***
+```less
+.tflow {
+	.text-overflow;
+}
+```
+***`Output`***
+```css
+.tflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+```
 
-`.border-left-radius(@radius);`
+***
+##### **Hyphens**
+**`.hyphens(@value);`** - Default value is `auto`.
+
+***
+#### **Layout Debugger**
+Display red border in all box to show does the layout is right or not.
+
+**`.debug-block;`**
+
+***`Output`***
+```css
+* {
+	box-shadow(0 0 0 1px red !important;
+}
+```
+
+***
+##### **Input Placeholder Color**
+**`.input-placehoder(@color);`**
+
+- **`@color`** ~ is the input placeholder color.
+
+***
+##### **Selection Color**
+Customize the selection text-color and background-color.
+
+**`.selection-color(@values)`**
+
+- **`@values`** ~ shorthand format, can be `color` or `color background-color`.
+
+***`Sample`***
+```less
+.selected-text-orange {
+	.selection-color(orange);
+}
+.selected-text-bg-orange {
+	.selection-color(orange black);
+}
+```
+***`Output`***
+```css
+.selected-text-orange::selection {
+	color: #ffa500;
+}
+.selected-text-orange::-moz-selection {
+	color: #ffa500;
+}
+.selected-text-bg-orange::selection {
+	color: #ffa500;
+	background-color: #000000;
+}
+.selected-text-bg-orange::-moz-selection {
+	color: #ffa500;
+	background-color: #000000;
+}
+```	
+
+***
+###### **Mozilla Inner Focus Border**
+Customize the Mozilla Inner Focus Border. Usually Firefox browser will show dotted border on anchor, submit button etc. You can hide or set the style with this.
+
+**`.inner-focus-border(@border);`**
+
+***
+##### **Display**
+Custom display mixins.
+
+**`.block(@width @height);`** - Set display to block with or without size.
+**`.inline-block(@width @height);`** - Set display to inline-block with or without size.
+**`.inline(@width @height);`** - Set display to inline with or without size.
+**`.table(@width @height);`** - Set display to table with or without size.
+**`.table-cell(@width @height);`** - Set display to table-cell with or without size.
+**`.flex-box(@width @height);`** - Set display to flex-box with or without size.
+**`.size(@width @height);`** - Set the box size.
+
+**`.invisible;`** - Set the visibility to hidden and opacity to 0.
+**`.visible;`** - Set the visibility to visible and opacity to 1.
+**`.hide;`** - Set display to none.
+**`.show;`** - Set display to block.
+**`.hidden;`** Set display to none, visibility to hidden, and opacity to 0.
+
+***`Detail`***
+- **`@width`** , **`@height`** - *`optional`* - is the box width and height if you want to define them. You can skip the value with `none` or just use `.block;` if you don't want to set the box size.
+
+***`Sample`***
+```less
+.thumbnail {
+	.block(256px);
+}
+.fit-block {
+	.block(100% none);
+}
+.fit-height {
+	.block(none 100%);
+}
+.just-block {
+	.block;
+}
+```
+***`Output`***
+```css
+.thumbnail {
+  display: block;
+  width: 256px;
+  height: 256px;
+}
+.fit-block {
+  display: block;
+  width: 100%;
+}
+.fit-height {
+  display: block;
+  height: 100%;
+}
+.just-block {
+  display: block;
+}
+```
+
+
+
+
 
 ***
 ### **CSS3 Standard**
