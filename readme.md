@@ -305,19 +305,19 @@ Customize the Mozilla Inner Focus Border. Usually Firefox browser will show dott
 ##### **Display**
 Custom display mixins.
 
-**`.block(@width @height);`** - Set display to block with or without size.
-**`.inline-block(@width @height);`** - Set display to inline-block with or without size.
-**`.inline(@width @height);`** - Set display to inline with or without size.
-**`.table(@width @height);`** - Set display to table with or without size.
-**`.table-cell(@width @height);`** - Set display to table-cell with or without size.
-**`.flex-box(@width @height);`** - Set display to flex-box with or without size.
-**`.size(@width @height);`** - Set the box size.
+- **`.block(@width @height);`** - Set display to block with or without size.
+- **`.inline-block(@width @height);`** - Set display to inline-block with or without size.
+- **`.inline(@width @height);`** - Set display to inline with or without size.
+- **`.table(@width @height);`** - Set display to table with or without size.
+- **`.table-cell(@width @height);`** - Set display to table-cell with or without size.
+- **`.flex-box(@width @height);`** - Set display to flex-box with or without size.
+- **`.size(@width @height);`** - Set the box size.
 
-**`.invisible;`** - Set the visibility to hidden and opacity to 0.
-**`.visible;`** - Set the visibility to visible and opacity to 1.
-**`.hide;`** - Set display to none.
-**`.show;`** - Set display to block.
-**`.hidden;`** Set display to none, visibility to hidden, and opacity to 0.
+- **`.invisible;`** - Set the visibility to hidden and opacity to 0.
+- **`.visible;`** - Set the visibility to visible and opacity to 1.
+- **`.hide;`** - Set display to none.
+- **`.show;`** - Set display to block.
+- **`.hidden;`** Set display to none, visibility to hidden, and opacity to 0.
 
 ***`Detail`***
 - **`@width`** , **`@height`** - *`optional`* - is the box width and height if you want to define them. You can skip the value with `none` or just use `.block;` if you don't want to set the box size.
