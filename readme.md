@@ -611,7 +611,7 @@ Positioning shorthand. You can skip the position value with `none`.
 
 ***
 ### **CSS3 Standard**
-- `.appearance(@val);`
+- `.appearance(@value);`
 - `.animation(@value);`
 - `.animation-name(@name);`
 - `.animation-duration(@duration);`
@@ -621,7 +621,7 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.animation-direction(@direction);`
 - `.animation-fill-mode(@mode);`
 - `.animation-play-state(@state);`
-- `.backface-visibility(@val);`
+- `.backface-visibility(@value);`
 - `.background-clip(@value);`
 - `.background-origin(@value);`
 - `.background-size(@value);`
@@ -645,11 +645,11 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.box-ordinal-group(@value);`
 - `.box-orien(@value);`
 - `.box-pack(@value);`
-- `.box-sizing(@val);`
+- `.box-sizing(@value);`
 - `.break-after(@value);`
 - `.break-before(@value);`
 - `.break-inside(@value);`
-- `.clip-path(@val);`
+- `.clip-path(@value);`
 - `.columns(@value);`
 - `.column-count(@value);`
 - `.column-fill(@value);`
@@ -659,38 +659,38 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.column-rule-width(@value);`
 - `.column-span(@value);`
 - `.column-width(@value);`
-- `.filter(@val);`
-- `.grid-columns(@val);`
-- `.grid-rows(@val);`
-- `.hanging-punctuation(@val);`
-- `.icon(@val);`
+- `.filter(@value);`
+- `.grid-columns(@value);`
+- `.grid-rows(@value);`
+- `.hanging-punctuation(@value);`
+- `.icon(@value);`
 - `.marquee-direction(@value);`
 - `.marquee-play-count(@value);`
 - `.marquee-speed(@value);`
 - `.marquee-style(@value);`
 - `.nav-index(@value);`
-- `.nav-left(@v);`
-- `.nav-right(@v);`
-- `.nav-up(@v);`
-- `.opacity(@val);`
-- `.punctuation-trim(@val);`
-- `.resize(@val);`
-- `.rotation(@v);`
-- `.rotation-point(@v);`
-- `.target(@val);`
-- `.target-name(@val);`
-- `.target-new(@val);`
-- `.target-position(@val);`
-- `.text-wrap(@val);`
-- `.text-size-adjust(@val);`
-- `.transition(@values);`
+- `.nav-left(@value);`
+- `.nav-right(@value);`
+- `.nav-up(@value);`
+- `.opacity(@value);`
+- `.punctuation-trim(@value);`
+- `.resize(@value);`
+- `.rotation(@value);`
+- `.rotation-point(@value);`
+- `.target(@value);`
+- `.target-name(@value);`
+- `.target-new(@value);`
+- `.target-position(@value);`
+- `.text-wrap(@value);`
+- `.text-size-adjust(@value);`
+- `.transition(@value);`
 - `.transition-property(@prop);`
 - `.transition-duration(@duration);`
 - `.transition-timing-function(@repeat);`
 - `.transition-delay(@delay);`
-- `.user-select(@val);`
-- `.word-berak(@val);`
-- `.word-wrap(@val);`
+- `.user-select(@value);`
+- `.word-berak(@value);`
+- `.word-wrap(@value);`
 
 
 ***
