@@ -606,6 +606,99 @@ Positioning shorthand. You can skip the position value with `none`.
 }
 ```
 
+***
+#### **Box Shadow**
+Generates drop shadow, text shadow, long drop shadow and long text shadow.
+
+- **`.drop-shadow(@value);`** - Generates box shadow.
+- **`.drop-shadow-e(@value);`** - Mixing box shadow.
+- **`.inner-shadow(@value);`** - Generates inner shadow.
+- **`.inner-shadow-e(@value);`** - Mixing inner shadow.
+- **`.text-shadow-e(@value);`** - Mixing text shadow.
+- **`.long-drop-shadow(@direction @size @color @style, @depth);`** - Generates long drop shadow.
+- **`.long-text-shadow(@direction @size @color @style, @depth);`** - Generates long text shadow.
+
+***`Detail`***
+- **`@direction`** - is the shadow direction. Available direction: `up`, `right`, `down`, `left`, `up-left`, `up-right`, `down-left`, `down-right`.
+- **`@size`** - is the shadow size. Don't use unit prefix for shadow size. E.g: `30`.
+- **`@color`** - is the shadow color.
+- **`@style`** - is the shadow style. Available style: `blur` and `flat`.
+- **`@depth`** - *`optional`* - is the shadow depth for `blur` style. Min `0.5` max `5`.
+
+***
+#### **Shapes**
+Generates shapes.
+
+- **`.triangle(@size @color @direction @rotate);`** - Generates triangle. `@direction` value: `up`, `right`, `down`, `left`.
+- **`.circle(@size @bg-color);`** - Generates circle. `@bg-color` is optional background color.
+- **`.oval(@width @height @bg-color @rotate)`** - Generates oval.
+
+***
+#### **Transform**
+CSS Transform shorthand. Use `-e` suffix to mix the transform value.
+
+- **`.transform-e(@values);`** - Mixing transform values.
+- **`.translate(@x @y @z);`** - Translate object. `@y` and `@z` is optional. If `@z` is defined, then `translate3d` will be used.
+- **`.translateX(@x);`**
+- **`.translateY(@y);`**
+- **`.translateZ(@z);`**
+- **`.translate-e(@x @y @z);`** - Mixable with another transform values.
+- **`.translateX-e(@x);`**
+- **`.translateY-e(@y);`**
+- **`.translateZ-e(@z);`**
+- **`.rotate(@x @y @z);`** - Rotate objet. `@y` and `@z` is optional. If `@z` is defined, then `rotate3d` will be used.
+- **`.rotateX(@x);`**
+- **`.rotateY(@y);`**
+- **`.rotateZ(@z);`**
+- **`.rotate-e(@x @y @z);`** - Mixable with other transform values.
+- **`.rotateX-e(@x);`**
+- **`.rotateY-e(@y);`**
+- **`.rotateZ-e(@z);`**
+- **`.scale(@x @y @z);`** - Scale object. `@y` and `@z` is optional. If `@z` is defined, then `scale3d` will be used.
+- **`.scaleX(@x);`**
+- **`.scaleY(@y);`**
+- **`.scaleZ(@z);`**
+- **`.scale-e(@x @y @z);`** - Mixable with other transform values.
+- **`.scaleX-e(@x);`**
+- **`.scaleY-e(@y);`**
+- **`.scaleZ-e(@z);`**
+- **`.skew(@x @y);`** - Skew object. `@y` is optional.
+- **`.skewX(@x);`**
+- **`.skewY(@y);`**
+- **`.skew-e(@x @y);`** - Mixable with other transform values.
+- **`.skewX-e(@x);`**
+- **`.skewY-e(@y);`**
+
+***
+#### **Media Queries**
+Media query collections.
+
+***`Sample Usage`***
+```less
+@media @retina {
+	// Your styles.
+}
+```
+***`Output`***
+```css
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+	// Your styles.
+}
+```
+
+- **`@retina`** - Retina display media query.
+- **`@mobile`** - Mobile display.
+- **`@mobile-portrait`** - Mobile portrait mode.
+- **`@mobile-landscape`** - Mobile landscape mode.
+- **`@tablet`** - Tablet Display.
+- **`@tablet-portrait`**  - Tablet portrait mode.
+- **`@tablet-landscape`** - Tablet landscape mode.
+- **`@desktop`** - Desktop display.
+- **`@desktop-mdm`** - Desktop medium size.
+- **`@desktop-whd`** - Desktop WHD.
+- **`@desktop-qhd`** - Desktop QHD.
+- **`@desktop-uhd`** - Desktop UHD (4K).
+
 
 
 
@@ -646,6 +739,7 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.box-orien(@value);`
 - `.box-pack(@value);`
 - `.box-sizing(@value);`
+- `.box-shadow(@value);`
 - `.break-after(@value);`
 - `.break-before(@value);`
 - `.break-inside(@value);`
@@ -673,6 +767,8 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.nav-right(@value);`
 - `.nav-up(@value);`
 - `.opacity(@value);`
+- `.perspective(@value);`
+- `.perspective-origin(@value);`
 - `.punctuation-trim(@value);`
 - `.resize(@value);`
 - `.rotation(@value);`
@@ -683,6 +779,9 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.target-position(@value);`
 - `.text-wrap(@value);`
 - `.text-size-adjust(@value);`
+- `.transform(@value);`
+- `.transform-origin(@value);`
+- `.transform-style(@value);`
 - `.transition(@value);`
 - `.transition-property(@prop);`
 - `.transition-duration(@duration);`
@@ -691,6 +790,9 @@ Positioning shorthand. You can skip the position value with `none`.
 - `.user-select(@value);`
 - `.word-berak(@value);`
 - `.word-wrap(@value);`
+
+
+
 
 
 ***
