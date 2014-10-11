@@ -700,8 +700,6 @@ Media query collections.
 - **`@desktop-uhd`** - Desktop UHD (4K).
 
 
-
-
 ***
 ### **CSS3 Standard**
 - `.appearance(@value);`
@@ -791,9 +789,3 @@ Media query collections.
 - `.word-berak(@value);`
 - `.word-wrap(@value);`
 
-
-
-
-
-***
-Still writing . . .
