@@ -23,7 +23,8 @@ module.exports = function(grunt) {
                         'src/mixins/_shape.less',
                         'src/mixins/_transform.less',
 
-                        'src/mixins/_normalize.less'
+                        'src/mixins/_normalize.less',
+                        'src/mixins/_reset.less'
                     ]
                 }
             }

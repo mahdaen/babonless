@@ -1,0 +1,49 @@
+// Reset Default Browser Style.
+.reset() {
+    // Resetting HTML and BODY layout.
+    html, body {
+        .size(100%);
+        .font-smoothing;
+
+        margin: 0;
+    }
+
+    // Force elements box sizing to border box.
+    body * {
+        .box-sizing(border-box);
+    }
+
+    // Resetting ul that contains class.
+    ul[class] {
+        .block;
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    // Reseting input that has class.
+    input[class] {
+        .appearance(none);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    // Resetting Headings.
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+
+    // Resetting Anchor.
+    a {
+        .inline-block;
+
+        text-decoration: none;
+
+        &:focus, &:hover, &:visited {
+            outline: none;
+        }
+    }
+}

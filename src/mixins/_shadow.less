@@ -7,8 +7,11 @@
     .prefixer(box-shadow, @arg, true, comma);
 }
 // Merge Text Shadow.
+.text-shadow(@arg) {
+    .prefixer(text-shadow, @arg, true);
+}
 .text-shadow-e(@arg) {
-    text-shadow+: @arg;
+    .prefixer(text-shadow, @arg, true, comma);
 }
 
 // Drop shadow.
