@@ -119,10 +119,7 @@ Vendor Prefixer lets you create mixins that automatically prefixed.
 ```
 ***
 #### **Clearfix**
-**`.clearfix(@padding, @margin);`**
-
-- **`@padding`** ~ *`optional`*.
-- **`@margin`** ~ *`optional`*.
+**`.clearfix;`**
 
 ***`Sample`***
 ```less
