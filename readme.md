@@ -5,7 +5,7 @@ BabonLESS is just another LESS library. BabonLESS help you with CSS3 mixins and 
 Example:
 ```less
 .flying-block {
-	.block(50%);
+	.block(100%);
 	.absolute(50% none none 50%);
 	.translate(-50% -50%);
 	.blur-e(3px);
