@@ -1,6 +1,6 @@
 {
     "name": "babonless",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Just another LESS library.",
     "main": "dist/babonless-0.0.1.less",
     "ignore": [
