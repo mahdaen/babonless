@@ -671,6 +671,37 @@
         }
     }
 }
+.min-size(@arg) when (length(@arg) >= 1) {
+    @min-width: extract(@arg, 1);
+    @min-height: extract(@arg, 2);
+
+    & when (isnumber(@min-width)), (@min-width = auto) {
+        min-width: @min-width;
+
+        & when (length(@arg) = 1) {
+            min-height: @min-width;
+        }
+    }
+    & when (length(@arg) = 2) and (isnumber(@min-height)), (@min-height = auto) {
+        min-height: @min-height;
+    }
+}
+.max-size(@arg) when (length(@arg) >= 1) {
+    @max-width: extract(@arg, 1);
+    @max-height: extract(@arg, 2);
+
+    & when (isnumber(@max-width)), (@max-width = auto) {
+        max-width: @max-width;
+
+        & when (length(@arg) = 1) {
+            max-height: @max-width;
+        }
+    }
+    & when (length(@arg) = 2) and (isnumber(@max-height)), (@max-height = auto) {
+        max-height: @max-height;
+    }
+}
+
 // Font Face Generator.
 .font-family(@arg) when (length(@arg) >= 2) {
     @name: extract(@arg, 1);
