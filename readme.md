@@ -312,6 +312,8 @@ Custom display mixins.
 - **`.table-cell(@width @height);`** - Set display to table-cell with or without size.
 - **`.flex-box(@width @height);`** - Set display to flex-box with or without size.
 - **`.size(@width @height);`** - Set the box size.
+- **`.min-size(@width @height);`** - Set min width and min height.
+- **`.max-size(@width @height);`** - Set max width and max height.
 - **`.invisible;`** - Set the visibility to hidden and opacity to 0.
 - **`.visible;`** - Set the visibility to visible and opacity to 1.
 - **`.hide;`** - Set display to none.
