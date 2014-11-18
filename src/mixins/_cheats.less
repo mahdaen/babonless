@@ -1,19 +1,51 @@
 // Browser Customization Mixins.
 
 // Input Placeholder.
-.input-placeholder(@arg: @def-pld-clr) {
+.input-placeholder(@arg: @def-pld-clr; @font: none) {
     &::-webkit-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-moz-placeholder {
         color: @arg;
         .opacity(1);
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-ms-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-o-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
 }
 
