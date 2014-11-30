@@ -33,11 +33,38 @@
 .table(@size: none) {
     .display-set(table, @size);
 }
+.table-x(@size: none; @trans: true) {
+    .table(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
+}
 .table-row(@size: none) {
     .display-set(table-row, @size);
 }
+.table-row-x(@size: none; @trans: true) {
+    .table-row(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
+}
 .table-cell(@size: none) {
     .display-set(table-cell, @size);
+}
+.table-cell-x(@size: none; @trans: true) {
+    .table-cell(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
 }
 .flex-box(@size: none) {
     .display-set(flex, @size);

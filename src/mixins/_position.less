@@ -26,12 +26,12 @@
     .position(absolute, @arg);
 }
 .absolute-center() {
-    .absolute(50%);
-    .translateY-e(-50%);
-}
-.absolute-middle() {
     .absolute(none none none 50%);
     .translateX-e(-50%);
+}
+.absolute-middle() {
+    .absolute(50%);
+    .translateY-e(-50%);
 }
 .absolute-center-all() {
     .absolute(50% none none 50%);
@@ -46,5 +46,13 @@
 // Fixed position.
 .fixed(@arg: @def-pos-val) {
     .position(fixed, @arg);
+}
+
+/* Center Text */
+.center-align() {
+    text-align: center;
+}
+.middle-align() {
+    vertical-align: middle;
 }
 

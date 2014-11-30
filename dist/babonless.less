@@ -110,18 +110,11 @@
 }
 
 // Clearfix.
-.clearfix(@padding; @margin) {
+.clearfix() {
     *zoom: 1;
 
     &:before, &:after { content: ""; display: table; }
     &:after { clear: both; }
-
-    & when (length(@padding) >= 1) {
-        padding: @padding;
-    }
-    & when (length(@margin) >= 1) {
-        margin: @margin;
-    }
 }
 
 // Container.
@@ -542,19 +535,51 @@
 // Browser Customization Mixins.
 
 // Input Placeholder.
-.input-placeholder(@arg: @def-pld-clr) {
+.input-placeholder(@arg: @def-pld-clr; @font: none) {
     &::-webkit-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-moz-placeholder {
         color: @arg;
         .opacity(1);
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-ms-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
     &::-o-input-placeholder {
         color: @arg;
+
+        & when (length(@font) >= 2) {
+            font-size: extract(@font, 1);
+            font-family: extract(@font, 2);
+        }
+        & when (length(@font) = 3) {
+            line-height: extract(@font, 3);
+        }
     }
 }
 
@@ -944,12 +969,12 @@
     .position(absolute, @arg);
 }
 .absolute-center() {
-    .absolute(50%);
-    .translateY-e(-50%);
-}
-.absolute-middle() {
     .absolute(none none none 50%);
     .translateX-e(-50%);
+}
+.absolute-middle() {
+    .absolute(50%);
+    .translateY-e(-50%);
 }
 .absolute-center-all() {
     .absolute(50% none none 50%);
@@ -1327,19 +1352,19 @@
     .prefixer(perspective-origin, @arg, true);
 }
 .normalize() {
-/*
- * ADAPTING BOILERPLATE.CSS
- * ---------------------------------------------------------------------------
- * HTML5 ✰ Boilerplate
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- *
- * normalize -----------------------------------------------------------------
- */
+    /*
+     * ADAPTING BOILERPLATE.CSS
+     * ---------------------------------------------------------------------------
+     * HTML5 ✰ Boilerplate
+     *
+     * What follows is the result of much research on cross-browser styling.
+     * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+     * Kroc Camen, and the H5BP dev community and team.
+     *
+     * Detailed information about this CSS: h5bp.com/css
+     *
+     * normalize -----------------------------------------------------------------
+     */
 
     html {
         font-size: 100%;
@@ -1581,11 +1606,15 @@
         .appearance(none);
 
         *overflow: visible;
+    }
+
+    input[type="button"], input[type="reset"], input[type="submit"], {
         cursor: pointer;
     }
 
     input[type="checkbox"], input[type="radio"] {
         padding: 0;
+        cursor: pointer;
     }
 
     input[type="search"] {

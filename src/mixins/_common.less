@@ -63,18 +63,11 @@
 }
 
 // Clearfix.
-.clearfix(@padding; @margin) {
+.clearfix() {
     *zoom: 1;
 
     &:before, &:after { content: ""; display: table; }
     &:after { clear: both; }
-
-    & when (length(@padding) >= 1) {
-        padding: @padding;
-    }
-    & when (length(@margin) >= 1) {
-        margin: @margin;
-    }
 }
 
 // Container.
