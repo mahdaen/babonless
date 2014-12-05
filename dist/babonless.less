@@ -440,8 +440,8 @@
     }
     & when (length(@arg) = 5) {
         @top: extract(@arg, 1);
-        @btm: extract(@arg, 2);
-        @rgt: extract(@arg, 3);
+        @rgt: extract(@arg, 2);
+        @btm: extract(@arg, 3);
 
         @typ: extract(@arg, 4);
         @clr: extract(@arg, 5);
@@ -458,8 +458,8 @@
     }
     & when (length(@arg) = 6) {
         @top: extract(@arg, 1);
-        @btm: extract(@arg, 2);
-        @rgt: extract(@arg, 3);
+        @rgt: extract(@arg, 2);
+        @btm: extract(@arg, 3);
         @lft: extract(@arg, 4);
 
         @typ: extract(@arg, 5);
@@ -647,11 +647,38 @@
 .table(@size: none) {
     .display-set(table, @size);
 }
+.table-x(@size: none; @trans: true) {
+    .table(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
+}
 .table-row(@size: none) {
     .display-set(table-row, @size);
 }
+.table-row-x(@size: none; @trans: true) {
+    .table-row(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
+}
 .table-cell(@size: none) {
     .display-set(table-cell, @size);
+}
+.table-cell-x(@size: none; @trans: true) {
+    .table-cell(@size);
+
+    & when (@trans = true) {
+        @media @mobile {
+            .block(@size);
+        }
+    }
 }
 .flex-box(@size: none) {
     .display-set(flex, @size);
@@ -991,6 +1018,14 @@
     .position(fixed, @arg);
 }
 
+// Center Text
+.center-align() {
+    text-align: center;
+}
+.middle-align() {
+    vertical-align: middle;
+}
+
 
 // Box Shadow.
 .box-shadow(@arg) {
@@ -1295,7 +1330,6 @@
     .transform(scaleZ(@arg));
 }
 
-/* Merge Scale */
 .scale-e(@arg) {
     & when (length(@arg) = 1) {
         .transform-e(scale(@arg));
