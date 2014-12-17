@@ -573,6 +573,23 @@ Positioning shorthand. You can skip the position value with `none`.
 - **`.absolute-middle;`** - Set position to absolute and center to vertical.
 - **`.absolute-center-all;`** - Set position to absolute and center to both horizontal and vertical.
 
+**`Extras`**
+- **`.absolute-top;`**
+- **`.absolute-middle;`**
+- **`.absolute-bottom;`**
+- **`.absolute-left;`**
+- **`.absolute-center;`**
+- **`.absolute-right;`**
+- **`.absolute-top-left;`**
+- **`.absolute-top-center;`**
+- **`.absolute-top-right;`**
+- **`.absolute-middle-left;`**
+- **`.absolute-middle-center;`**
+- **`.absolute-middle-right;`**
+- **`.absolute-bottom-left;`**
+- **`.absolute-bottom-center;`**
+- **`.absolute-bottom-right;`**
+
 ***`Sample`***
 ```less
 .abs {
@@ -698,6 +715,41 @@ Media query collections.
 - **`@desktop-qhd`** - Desktop QHD.
 - **`@desktop-uhd`** - Desktop UHD (4K).
 
+***
+#### **General Alignments**
+- **`.align-left;`** - equal to `text-align: left;`
+- **`.align-center;`** - equal to `text-align: center;`
+- **`.align-right;`** - equal to `text-align: right;`
+- **`.align-top;`** - equal to `vertical-align: left;`
+- **`.align-middle;`** - equal to `vertical-align: middle;`
+- **`.align-bottom;`** - equal to `vertical-align: bottom;`
+- **`.align-baseline;`** - equal to `vertical-align: baseline;`
+
+#### **Mixed Alignments**
+- **`.align-top-left;`** - equal to `text-align: left; vertical-align: top;`
+- **`.align-top-center;`** - equal to `text-align: center; vertical-align: top;`
+- **`.align-top-right;`** - equal to `text-align: right; vertical-align: top;`
+- **`.align-middle-left;`** - equal to `text-align: left; vertical-align: middle;`
+- **`.align-middle-center;`** - equal to `text-align: center; vertical-align: middle;`
+- **`.align-middle-right;`** - equal to `text-align: right; vertical-align: middle;`
+- **`.align-bottom-left;`** - equal to `text-align: left; vertical-align: bottom;`
+- **`.align-bottom-center;`** - equal to `text-align: center; vertical-align: bottom;`
+- **`.align-bottom-right;`** - equal to `text-align: right; vertical-align: bottom;`
+- **`.align-baseline-left;`** - equal to `text-align: left; vertical-align: baseline;`
+- **`.align-baseline-center;`** - equal to `text-align: center; vertical-align: baseline;`
+- **`.align-baseline-right;`** - equal to `text-align: right; vertical-align: baseline;`
+
+***
+#### **Text Styles**
+- **`.uppercase`** - equal to `text-transform: uppercase;`
+- **`.lowercase`** - equal to `text-transform: lowercase;`
+- **`.capitalize`** - equal to `text-transform: capitalize;`
+- **`.justify`** - equal to `text-align: justify;`
+- **`.subscript`** - equal to `vertical-align: sub;`
+- **`.superscript`** - equal to `vertical-align: super;`
+- **`.no-wrap`** - equal to `white-space: nowrap;`
+- **`.text-top`** - equal to `vertical-align: text-top;`
+- **`.text-bottom`** - equal to `vertical-align: text-bottom;`
 
 ***
 ### **CSS3 Standard**

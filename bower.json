@@ -1,6 +1,6 @@
 {
     "name": "babonless",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Just another LESS library.",
     "main": "dist/babonless-0.0.1.less",
     "ignore": [
@@ -11,7 +11,7 @@
         "tests"
     ],
     "authors": [
-        "Nanang Mahdaen El Agung <nanang@mahdaen.name>"
+        "Nanang Mahdaen El Agung <mahdaen@gmail.com>"
     ],
     "keywords": [
         "less",
