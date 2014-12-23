@@ -1,6 +1,9 @@
 // VARIABLE COLLECTIONS.
 // ----------------------------------------------
 
+// Enable or disable responsive.
+@responsive-transform   : false;
+
 // Default Input Placeholder Color.
 @def-pld-clr            : #555;
 
@@ -654,6 +657,12 @@
 }
 .table(@size: none) {
     .display-set(table, @size);
+
+    & when (@responsive-transform = true) {
+        @media @mobile {
+            .display-set(block, @size);
+        }
+    }
 }
 .table-x(@size: none; @trans: true) {
     .table(@size);
@@ -666,6 +675,12 @@
 }
 .table-row(@size: none) {
     .display-set(table-row, @size);
+
+    & when (@responsive-transform = true) {
+        @media @mobile {
+            .display-set(block, @size);
+        }
+    }
 }
 .table-row-x(@size: none; @trans: true) {
     .table-row(@size);
@@ -678,6 +693,12 @@
 }
 .table-cell(@size: none) {
     .display-set(table-cell, @size);
+
+    & when (@responsive-transform = true) {
+        @media @mobile {
+            .display-set(block, @size);
+        }
+    }
 }
 .table-cell-x(@size: none; @trans: true) {
     .table-cell(@size);
