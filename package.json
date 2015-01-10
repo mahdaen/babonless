@@ -1,16 +1,24 @@
 {
-    "name": "babonless",
-    "version": "0.1.5",
-    "description": "Just another LESS library.",
-    "readme": "readme.md",
-
-    "repository": [
-        "https://github.com/mahdaen/babonless",
-        "https://gitlab.com/babonkit/babonless"
-    ],
-
-    "dependencies": {
-        "grunt": "*",
-        "grunt-contrib-concat": "*"
-    }
+  "name": "babonless",
+  "version": "0.1.5",
+  "description": "Just another LESS library.",
+  "repository": {
+    "url": "https://github.com/mahdaen/babonless",
+    "type": "git"
+  },
+  "dependencies": {
+    "grunt": "*",
+    "grunt-contrib-concat": "*"
+  },
+  "main": "Gruntfile.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "less",
+    "css"
+  ],
+  "author": "Nanang Mahdaen El Agung <mahdaen@gmail.com>",
+  "license": "MIT"
 }
