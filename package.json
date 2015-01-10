@@ -20,5 +20,9 @@
     "css"
   ],
   "author": "Nanang Mahdaen El Agung <mahdaen@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahdaen/babonless/issues"
+  },
+  "homepage": "https://github.com/mahdaen/babonless"
 }
