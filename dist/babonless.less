@@ -56,7 +56,7 @@
 }
 
 // Hex to RGBA Converter.
-.hrgba(@color, @opacity) when (iscolor(@color)) and (isnumber(@opacity)) {
+.hrgba(@color, @opacity) when (iscolor(@color)), (isstring(@color)) and (isnumber(@opacity)), (isstring(@opacity)) {
     @new-color: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
 
@@ -121,12 +121,12 @@
 }
 
 // Container.
-.container-box(@width; @padding: none) when (isnumber(@width)) {
+.container-box(@width; @padding: none) when (isnumber(@width)), (isstring(@width)) {
     width: 100%;
     max-width: @width;
     margin: 0 auto;
 
-    & when (length(@padding) = 1) and (isnumber(@padding)), (length(@padding) >= 2) {
+    & when (length(@padding) = 1) and (isnumber(@padding)), (isstring(@padding)), (length(@padding) >= 2) {
         padding: @padding;
     }
 }
@@ -428,16 +428,16 @@
         @typ: extract(@arg, 3);
         @clr: extract(@arg, 4);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
-        & when (isnumber(@lft)) {
+        & when (isnumber(@lft)), (isstring(@lft)) {
             border-left: @lft @typ @clr;
         }
     }
@@ -449,13 +449,13 @@
         @typ: extract(@arg, 4);
         @clr: extract(@arg, 5);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
     }
@@ -468,16 +468,16 @@
         @typ: extract(@arg, 5);
         @clr: extract(@arg, 6);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
-        & when (isnumber(@lft)) {
+        & when (isnumber(@lft)), (isstring(@lft)) {
             border-left: @lft @typ @clr;
         }
     }
@@ -632,14 +632,14 @@
         @wd: extract(@size, 1);
         @hg: extract(@size, 2);
 
-        & when (isnumber(@wd)), (@wd = auto) {
+        & when (isnumber(@wd)), (@wd = auto), (isstring(@wd)) {
             width: @wd;
         }
-        & when (isnumber(@hg)), (@hg = auto) {
+        & when (isnumber(@hg)), (@hg = auto), (isstring(@hg)) {
             height: @hg;
         }
     }
-    & when (length(@size) = 1) and (isnumber(@size)), (@size = auto) {
+    & when (length(@size) = 1) and (isnumber(@size)), (@size = auto), (isstring(@size)) {
         width: @size;
         height: @size;
     }
@@ -768,16 +768,16 @@
 .size(@arg) when (length(@arg) >= 1) {
     @wid: extract(@arg, 1);
 
-    & when (isnumber(@wid)), (@wid = auto) {
+    & when (isnumber(@wid)), (@wid = auto), (isstring(@wid)) {
         width: @wid;
     }
-    & when (length(@arg) = 1) and (isnumber(@wid)), (@wid = auto) {
+    & when (length(@arg) = 1) and (isnumber(@wid)), (@wid = auto), (isstring(@wid)) {
         height: @wid;
     }
     & when (length(@arg) = 2) {
         @hgt: extract(@arg, 2);
 
-        & when (isnumber(@hgt)), (@hgt = auto) {
+        & when (isnumber(@hgt)), (@hgt = auto), (isstring(@hgt)) {
             height: @hgt;
         }
     }
@@ -786,14 +786,14 @@
     @min-width: extract(@arg, 1);
     @min-height: extract(@arg, 2);
 
-    & when (isnumber(@min-width)), (@min-width = auto) {
+    & when (isnumber(@min-width)), (@min-width = auto), (isstring(@min-width)) {
         min-width: @min-width;
 
         & when (length(@arg) = 1) {
             min-height: @min-width;
         }
     }
-    & when (length(@arg) = 2) and (isnumber(@min-height)), (@min-height = auto) {
+    & when (length(@arg) = 2) and (isnumber(@min-height)), (@min-height = auto), (isstring(@min-height)) {
         min-height: @min-height;
     }
 }
@@ -801,14 +801,14 @@
     @max-width: extract(@arg, 1);
     @max-height: extract(@arg, 2);
 
-    & when (isnumber(@max-width)), (@max-width = auto) {
+    & when (isnumber(@max-width)), (@max-width = auto), (isstring(@max-width)) {
         max-width: @max-width;
 
         & when (length(@arg) = 1) {
             max-height: @max-width;
         }
     }
-    & when (length(@arg) = 2) and (isnumber(@max-height)), (@max-height = auto) {
+    & when (length(@arg) = 2) and (isnumber(@max-height)), (@max-height = auto), (isstring(@max-height)) {
         max-height: @max-height;
     }
 }
@@ -990,7 +990,7 @@
 }
 
 // Grid column generator.
-.grid-col(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+.grid-col(@column; @option: @def-grid-option) when (isnumber(@column)), (isstring(@colum)) and (length(@option) = 3) {
     @width: extract(@option, 1);
     @colum: extract(@option, 2);
     @guter: extract(@option, 3);
@@ -1004,7 +1004,7 @@
     float: left;
 }
 // Grid prefix generator.
-.grid-pre(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+.grid-pre(@column; @option: @def-grid-option) when (isnumber(@column)), (isstring(@column)) and (length(@option) = 3) {
     @width: extract(@option, 1);
     @colum: extract(@option, 2);
     @guter: extract(@option, 3);
@@ -1015,7 +1015,7 @@
 
     padding-left: unit((@column-size * @column) + (@gutter-size * (@column - 1)), %);
 }
-.grid-suf(@column; @option: @def-grid-option) when (isnumber(@column)) and (length(@option) = 3) {
+.grid-suf(@column; @option: @def-grid-option) when (isnumber(@column)), (isstring(@colum)) and (length(@option) = 3) {
     @width: extract(@option, 1);
     @colum: extract(@option, 2);
     @guter: extract(@option, 3);
@@ -1036,16 +1036,16 @@
 
     position: @pos;
 
-    & when (isnumber(@top)), (@top = auto) {
+    & when (isnumber(@top)), (@top = auto), (isstring(@top)) {
         top: @top;
     }
-    & when (isnumber(@rgt)), (@rgt = auto) {
+    & when (isnumber(@rgt)), (@rgt = auto), (isstring(@rgt)) {
         right: @rgt;
     }
-    & when (isnumber(@btm)), (@btm = auto) {
+    & when (isnumber(@btm)), (@btm = auto), (isstring(@btm)) {
         bottom: @btm;
     }
-    & when (isnumber(@lft)), (@lft = auto) {
+    & when (isnumber(@lft)), (@lft = auto), (isstring(@lft)) {
         left: @lft;
     }
 }
@@ -1301,7 +1301,7 @@
     @hgt: extract(@arg, 2);
     @clr: extract(@arg, 3);
 
-    & when (isnumber(@wid)) and (isnumber(@hgt)) and (iscolor(@clr)) {
+    & when (isnumber(@wid)), (isstring(@wid)) and (isnumber(@hgt)), (isstring(@hgt)) and (iscolor(@clr)) {
         .size(@wid @hgt);
         .border-radius(50% / 50%);
 

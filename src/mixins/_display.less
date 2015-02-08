@@ -7,14 +7,14 @@
         @wd: extract(@size, 1);
         @hg: extract(@size, 2);
 
-        & when (isnumber(@wd)), (@wd = auto) {
+        & when (isnumber(@wd)), (@wd = auto), (isstring(@wd)) {
             width: @wd;
         }
-        & when (isnumber(@hg)), (@hg = auto) {
+        & when (isnumber(@hg)), (@hg = auto), (isstring(@hg)) {
             height: @hg;
         }
     }
-    & when (length(@size) = 1) and (isnumber(@size)), (@size = auto) {
+    & when (length(@size) = 1) and (isnumber(@size)), (@size = auto), (isstring(@size)) {
         width: @size;
         height: @size;
     }
@@ -143,16 +143,16 @@
 .size(@arg) when (length(@arg) >= 1) {
     @wid: extract(@arg, 1);
 
-    & when (isnumber(@wid)), (@wid = auto) {
+    & when (isnumber(@wid)), (@wid = auto), (isstring(@wid)) {
         width: @wid;
     }
-    & when (length(@arg) = 1) and (isnumber(@wid)), (@wid = auto) {
+    & when (length(@arg) = 1) and (isnumber(@wid)), (@wid = auto), (isstring(@wid)) {
         height: @wid;
     }
     & when (length(@arg) = 2) {
         @hgt: extract(@arg, 2);
 
-        & when (isnumber(@hgt)), (@hgt = auto) {
+        & when (isnumber(@hgt)), (@hgt = auto), (isstring(@hgt)) {
             height: @hgt;
         }
     }
@@ -161,14 +161,14 @@
     @min-width: extract(@arg, 1);
     @min-height: extract(@arg, 2);
 
-    & when (isnumber(@min-width)), (@min-width = auto) {
+    & when (isnumber(@min-width)), (@min-width = auto), (isstring(@min-width)) {
         min-width: @min-width;
 
         & when (length(@arg) = 1) {
             min-height: @min-width;
         }
     }
-    & when (length(@arg) = 2) and (isnumber(@min-height)), (@min-height = auto) {
+    & when (length(@arg) = 2) and (isnumber(@min-height)), (@min-height = auto), (isstring(@min-height)) {
         min-height: @min-height;
     }
 }
@@ -176,14 +176,14 @@
     @max-width: extract(@arg, 1);
     @max-height: extract(@arg, 2);
 
-    & when (isnumber(@max-width)), (@max-width = auto) {
+    & when (isnumber(@max-width)), (@max-width = auto), (isstring(@max-width)) {
         max-width: @max-width;
 
         & when (length(@arg) = 1) {
             max-height: @max-width;
         }
     }
-    & when (length(@arg) = 2) and (isnumber(@max-height)), (@max-height = auto) {
+    & when (length(@arg) = 2) and (isnumber(@max-height)), (@max-height = auto), (isstring(@max-height)) {
         max-height: @max-height;
     }
 }

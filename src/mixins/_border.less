@@ -9,16 +9,16 @@
         @typ: extract(@arg, 3);
         @clr: extract(@arg, 4);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
-        & when (isnumber(@lft)) {
+        & when (isnumber(@lft)), (isstring(@lft)) {
             border-left: @lft @typ @clr;
         }
     }
@@ -30,13 +30,13 @@
         @typ: extract(@arg, 4);
         @clr: extract(@arg, 5);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
     }
@@ -49,16 +49,16 @@
         @typ: extract(@arg, 5);
         @clr: extract(@arg, 6);
 
-        & when (isnumber(@top)) {
+        & when (isnumber(@top)), (isstring(@top)) {
             border-top: @top @typ @clr;
         }
-        & when (isnumber(@rgt)) {
+        & when (isnumber(@rgt)), (isstring(@rgt)) {
             border-right: @rgt @typ @clr;
         }
-        & when (isnumber(@btm)) {
+        & when (isnumber(@btm)), (isstring(@btm)) {
             border-bottom: @btm @typ @clr;
         }
-        & when (isnumber(@lft)) {
+        & when (isnumber(@lft)), (isstring(@lft)) {
             border-left: @lft @typ @clr;
         }
     }

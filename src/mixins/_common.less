@@ -6,7 +6,7 @@
 }
 
 // Hex to RGBA Converter.
-.hrgba(@color, @opacity) when (iscolor(@color)) and (isnumber(@opacity)) {
+.hrgba(@color, @opacity) when (iscolor(@color)), (isstring(@color)) and (isnumber(@opacity)), (isstring(@opacity)) {
     @new-color: rgba(red(@color), green(@color), blue(@color), @opacity);
 }
 
@@ -71,12 +71,12 @@
 }
 
 // Container.
-.container-box(@width; @padding: none) when (isnumber(@width)) {
+.container-box(@width; @padding: none) when (isnumber(@width)), (isstring(@width)) {
     width: 100%;
     max-width: @width;
     margin: 0 auto;
 
-    & when (length(@padding) = 1) and (isnumber(@padding)), (length(@padding) >= 2) {
+    & when (length(@padding) = 1) and (isnumber(@padding)), (isstring(@padding)), (length(@padding) >= 2) {
         padding: @padding;
     }
 }

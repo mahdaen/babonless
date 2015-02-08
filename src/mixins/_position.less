@@ -7,16 +7,16 @@
 
     position: @pos;
 
-    & when (isnumber(@top)), (@top = auto) {
+    & when (isnumber(@top)), (@top = auto), (isstring(@top)) {
         top: @top;
     }
-    & when (isnumber(@rgt)), (@rgt = auto) {
+    & when (isnumber(@rgt)), (@rgt = auto), (isstring(@rgt)) {
         right: @rgt;
     }
-    & when (isnumber(@btm)), (@btm = auto) {
+    & when (isnumber(@btm)), (@btm = auto), (isstring(@btm)) {
         bottom: @btm;
     }
-    & when (isnumber(@lft)), (@lft = auto) {
+    & when (isnumber(@lft)), (@lft = auto), (isstring(@lft)) {
         left: @lft;
     }
 }

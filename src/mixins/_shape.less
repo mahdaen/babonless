@@ -53,7 +53,7 @@
     @hgt: extract(@arg, 2);
     @clr: extract(@arg, 3);
 
-    & when (isnumber(@wid)) and (isnumber(@hgt)) and (iscolor(@clr)) {
+    & when (isnumber(@wid)), (isstring(@wid)) and (isnumber(@hgt)), (isstring(@hgt)) and (iscolor(@clr)) {
         .size(@wid @hgt);
         .border-radius(50% / 50%);
 
